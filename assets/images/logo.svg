@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <rect width="100%" height="100%" fill="#0f1419" rx="16"/>
+  
+  <style>
+    .mono { font-family: 'JetBrains Mono', 'Fira Code', Monaco, monospace; }
+    .text-brand { fill: #e6b450; font-size: 22px; font-weight: bold; }
+    .text-sub { fill: #5c6773; font-size: 11px; }
+    .array-box { stroke: #3e4b59; stroke-width: 1.5; fill: none; }
+    .array-box-error { stroke: #ff3333; stroke-width: 1.5; fill: #ff3333; fill-opacity: 0.1; }
+    .text-accent { fill: #ff3333; font-weight: bold; }
+    .text-dim { fill: #abb2bf; }
+  </style>
+
+  <rect x="25" y="60" width="26" height="30" class="array-box" rx="3" />
+  <text x="38" y="80" class="mono text-dim" font-size="16" text-anchor="middle">3</text>
+  <text x="38" y="105" class="mono text-sub" text-anchor="middle">0</text>
+
+  <rect x="56" y="60" width="26" height="30" class="array-box" rx="3" />
+  <text x="69" y="80" class="mono text-dim" font-size="16" text-anchor="middle">.</text>
+  <text x="69" y="105" class="mono text-sub" text-anchor="middle">1</text>
+
+  <rect x="87" y="60" width="26" height="30" class="array-box" rx="3" />
+  <text x="100" y="80" class="mono text-dim" font-size="16" text-anchor="middle">1</text>
+  <text x="100" y="105" class="mono text-sub" text-anchor="middle">2</text>
+
+  <rect x="118" y="60" width="26" height="30" class="array-box-error" rx="3" />
+  <text x="131" y="80" class="mono text-accent" font-size="16" text-anchor="middle">4</text>
+  <text x="131" y="105" class="mono text-accent" text-anchor="middle">3</text>
+
+  <text x="151" y="83" class="mono text-accent" font-size="14" opacity="0.8">1</text>
+  <text x="159" y="91" class="mono text-accent" font-size="12" opacity="0.6">5</text>
+  <text x="166" y="100" class="mono text-accent" font-size="10" opacity="0.4">9</text>
+  <text x="172" y="110" class="mono text-accent" font-size="9" opacity="0.2">2</text>
+  <text x="177" y="121" class="mono text-accent" font-size="8" opacity="0.1">6</text>
+
+  <text x="100" y="165" class="mono text-brand" text-anchor="middle">OffByPi</text>
+</svg>
