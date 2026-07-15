@@ -1,3 +1,8 @@
 @use "./variables.scss" as *;
 
-// put your custom CSS here!
+// The footer plugin (github:quartz-community/footer) hardcodes a "Created
+// with Quartz vX.X.X" line linking to quartz.jzhao.xyz, with no option to
+// disable it — hide it here since this isn't a Quartz-branded site.
+footer > p {
+  display: none;
+}
