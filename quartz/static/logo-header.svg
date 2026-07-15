@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 225 70" width="100%" height="100%">
+  <!-- Sfondo scuro con angoli arrotondati -->
+  <rect width="100%" height="100%" fill="#0f1419" rx="10"/>
+  
+  <style>
+    .mono { font-family: 'JetBrains Mono', 'Fira Code', Monaco, monospace; }
+    .text-dim { fill: #abb2bf; font-weight: 500; }
+    .text-accent { fill: #ff3333; font-weight: bold; }
+    
+    .array-box { stroke: #3e4b59; stroke-width: 2; fill: none; }
+    .array-box-error { stroke: #ff3333; stroke-width: 2; fill: #ff3333; fill-opacity: 0.15; }
+    
+    /* Effetto glow pulsante molto soft sull'errore */
+    @keyframes pulse-err {
+      0% { fill-opacity: 0.1; }
+      50% { fill-opacity: 0.22; }
+      100% { fill-opacity: 0.1; }
+    }
+    .error-glow { animation: pulse-err 3s infinite ease-in-out; }
+  </style>
+
+  <!-- Gruppo centrato orizzontalmente e verticalmente -->
+  <g transform="translate(10, 14)">
+    <!-- Cella 0: "3" -->
+    <rect x="0" y="0" width="36" height="42" class="array-box" rx="6" />
+    <text x="18" y="27" class="mono text-dim" font-size="22" text-anchor="middle">3</text>
+
+    <!-- Cella 1: "." -->
+    <rect x="42" y="0" width="36" height="42" class="array-box" rx="6" />
+    <text x="60" y="23" class="mono text-dim" font-size="22" text-anchor="middle">.</text>
+
+    <!-- Cella 2: "1" -->
+    <rect x="84" y="0" width="36" height="42" class="array-box" rx="6" />
+    <text x="102" y="27" class="mono text-dim" font-size="22" text-anchor="middle">1</text>
+
+    <!-- Cella 3 (Off-by-one Error): "4" -->
+    <rect x="126" y="0" width="36" height="42" class="array-box-error error-glow" rx="6" />
+    <text x="144" y="27" class="mono text-accent" font-size="22" text-anchor="middle">4</text>
+
+    <!-- Coda dei decimali di Pi (Orizzontale, sfumata) -->
+    <!-- 1 (opacità 70%) -->
+    <text x="176" y="27" class="mono text-accent" font-size="18" opacity="0.7">1</text>
+    <!-- 5 (opacità 40%) -->
+    <text x="192" y="27" class="mono text-accent" font-size="15" opacity="0.4">5</text>
+    <!-- 9 (opacità 15%) -->
+    <text x="206" y="27" class="mono text-accent" font-size="12" opacity="0.15">9</text>
+  </g>
+</svg>
