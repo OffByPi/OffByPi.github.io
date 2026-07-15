@@ -1,9 +1,12 @@
 // Regenerates the derived logo assets served by the site from the source logo.
 //
-// Source: assets/images/logo.png (untouched design source, never edit)
+// Sources:
+//   - assets/images/logo-compact.svg — icon-only mark, untouched design source, never edit
+//   - assets/images/logo.png         — full detailed logo, untouched design source, never edit
 // Outputs:
-//   - quartz/static/icon.png     — 512x512 favicon source (auto-downsized at build time)
-//   - quartz/static/og-image.png — 1200x675 default social-preview card, logo centered
+//   - quartz/static/icon.png     — 512x512 favicon, rendered from the compact icon
+//                                  (the full logo's fine print doesn't read at favicon size)
+//   - quartz/static/og-image.png — 1200x675 default social-preview card, full logo centered
 //                                  on a #0f1419 background
 //
 // Run with: node scripts/gen-logo-assets.mjs
@@ -14,10 +17,11 @@
 
 import sharp from "sharp"
 
+const ICON_SOURCE = "assets/images/logo-compact.svg"
 const LOGO_SOURCE = "assets/images/logo.png"
 
 async function genIcon() {
-  await sharp(LOGO_SOURCE).resize(512, 512).png().toFile("quartz/static/icon.png")
+  await sharp(ICON_SOURCE).resize(512, 512).png().toFile("quartz/static/icon.png")
 
   console.log("wrote quartz/static/icon.png")
 }
