@@ -20,12 +20,14 @@ const SiteLogo: QuartzComponent = ({ fileData, cfg, displayClass }: QuartzCompon
 
 SiteLogo.css = `
 .page-logo {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  width: 100%;
 }
 .page-logo img {
-  height: 3.5rem;
-  width: auto;
+  height: auto;
+  width: 100%;
+  max-width: 10rem;
   display: block;
 }
 `
