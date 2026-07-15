@@ -1,5 +1,6 @@
 import { loadQuartzConfig, loadQuartzLayout } from "./quartz/plugins/loader/config-loader"
 import * as ExternalPlugin from "./.quartz/plugins"
+import { registerCondition } from "./quartz/plugins/loader/conditions"
 
 const EXCLUDED_EXPLORER_FOLDERS = ["posts", "private", "templates"]
 
@@ -10,6 +11,8 @@ ExternalPlugin.Explorer({
     return !EXCLUDED_EXPLORER_FOLDERS.includes(topLevelFolder ?? "")
   },
 })
+
+registerCondition("is-index", (props) => props.fileData.slug === "index")
 
 const config = await loadQuartzConfig()
 export default config
