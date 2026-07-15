@@ -14,6 +14,10 @@ ExternalPlugin.Explorer({
 
 registerCondition("is-index", (props) => props.fileData.slug === "index")
 
+ExternalPlugin.RecentNotes({
+  filter: (f) => (f.slug ?? "").startsWith("posts/"),
+})
+
 const config = await loadQuartzConfig()
 export default config
 export const layout = await loadQuartzLayout()

@@ -223,7 +223,16 @@ plugins:
       links:
         GitHub: https://github.com/OffByPi
   - source: github:quartz-community/recent-notes
-    enabled: false
+    enabled: true
+    options:
+      title: Recent Lab Journals
+      limit: 5
+      showTags: false
+      hideFolderPages: true
+    layout:
+      position: afterBody
+      priority: 10
+      condition: is-index
   - source: github:quartz-community/spacer
     enabled: true
     options: {}
