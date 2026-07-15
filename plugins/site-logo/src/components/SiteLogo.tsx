@@ -24,7 +24,7 @@ SiteLogo.css = `
   align-items: center;
 }
 .page-logo img {
-  height: 2rem;
+  height: 3.5rem;
   width: auto;
   display: block;
 }
