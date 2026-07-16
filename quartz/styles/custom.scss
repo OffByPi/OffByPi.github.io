@@ -6,3 +6,12 @@
 footer > p {
   display: none;
 }
+
+// The explorer plugin (github:quartz-community/explorer) always renders a
+// collapse chevron next to every folder, even when a folder's mapFn has
+// stripped its children to make it a plain single link (e.g. the Blog quick
+// link in quartz.ts). Hide the chevron specifically when there's nothing to
+// expand, so childless folders read as plain links instead of broken toggles.
+.folder-container:has(+ .folder-outer .content:empty) .folder-icon {
+  display: none;
+}
