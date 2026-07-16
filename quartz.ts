@@ -2,13 +2,12 @@ import { loadQuartzConfig, loadQuartzLayout } from "./quartz/plugins/loader/conf
 import * as ExternalPlugin from "./.quartz/plugins"
 import { registerCondition } from "./quartz/plugins/loader/conditions"
 
-const EXCLUDED_EXPLORER_FOLDERS = ["posts", "private", "templates"]
-
 ExternalPlugin.Explorer({
   filterFn: (node) => {
     if (!node.isFolder) return true
+    const excludedFolders = ["posts", "private", "templates"]
     const topLevelFolder = node.slugSegments?.[0]
-    return !EXCLUDED_EXPLORER_FOLDERS.includes(topLevelFolder ?? "")
+    return node.slugSegment !== "tags" && !excludedFolders.includes(topLevelFolder ?? "")
   },
 })
 
