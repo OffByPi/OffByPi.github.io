@@ -8,16 +8,6 @@ I am a software architect and systems programmer. This space serves as my digita
 
 ---
 
-## 🔬 Recent Lab Journals
-
-This section tracks my active investigations, debugging logs, and project retrospectives.
-
-<div class="recent-notes-placeholder">
-<!-- The recent-notes plugin renders the 5 latest posts from /posts/ below the page body. -->
-</div>
-
----
-
 ## 🌱 Featured References
 
 Hand-curated entry points to my most frequently used technical guides:

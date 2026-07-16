@@ -225,7 +225,7 @@ plugins:
   - source: github:quartz-community/recent-notes
     enabled: true
     options:
-      title: Recent Lab Journals
+      title: 🔬 Recent Lab Journals
       limit: 5
       showTags: false
       hideFolderPages: true
