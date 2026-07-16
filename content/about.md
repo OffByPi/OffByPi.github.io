@@ -10,7 +10,7 @@ OffByPi is a personal developer hub curated by Dani (dani84bs). It is designed t
 
 My daily development environment relies on robust, keyboard-driven, and reproducible tools:
 - **OS:** macOS & Debian Linux
-- **Environment:** Nix, Home Manager, and Fish Shell
+- **Environment:** chezmoi and Fish Shell
 - **Editor:** Obsidian (configured as a local Zettelkasten with Vim keybindings)
 - **Engine:** Built with Quartz and managed via Git
 

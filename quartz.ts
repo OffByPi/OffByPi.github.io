@@ -5,9 +5,16 @@ import { registerCondition } from "./quartz/plugins/loader/conditions"
 ExternalPlugin.Explorer({
   filterFn: (node) => {
     if (!node.isFolder) return true
-    const excludedFolders = ["posts", "private", "templates"]
+    const excludedFolders = ["private", "templates"]
     const topLevelFolder = node.slugSegments?.[0]
     return node.slugSegment !== "tags" && !excludedFolders.includes(topLevelFolder ?? "")
+  },
+  mapFn: (node) => {
+    const isTopLevelPostsFolder =
+      node.isFolder && node.slugSegments?.length === 1 && node.slugSegments[0] === "posts"
+    if (isTopLevelPostsFolder) {
+      node.children = []
+    }
   },
 })
 
