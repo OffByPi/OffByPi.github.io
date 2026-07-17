@@ -15,3 +15,11 @@ footer > p {
 .folder-container:has(+ .folder-outer .content:empty) .folder-icon {
   display: none;
 }
+
+// Hide the explorer's own "Knowledge Base" heading/collapse bar so the
+// top-level items (Blog, Notes, About, ...) read as a flat menu instead of
+// being nested under a title. Content stays visible since nothing else
+// toggles the "collapsed" class on desktop without this button.
+.explorer button.desktop-explorer {
+  display: none !important;
+}
