@@ -2,9 +2,9 @@
 title: About
 ---
 
-## About OffByPi
+## About OffByπ
 
-OffByPi is a personal developer hub curated by Dani (dani84bs). It is designed to document real-world systems engineering problems, software architecture decisions, and development workflows.
+OffByπ is a personal developer hub curated by Dani (dani84bs). It is designed to document real-world systems engineering problems, software architecture decisions, and development workflows.
 
 ### Stack & Tools
 

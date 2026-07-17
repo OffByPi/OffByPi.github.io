@@ -24,6 +24,15 @@ footer > p {
   display: none !important;
 }
 
+// The article-title plugin (github:quartz-community/article-title) renders
+// the page's frontmatter title as an <h1> above the content on every page.
+// On the homepage that duplicates the "OffByπ" wordmark right next to it in
+// the sidebar logo, so hide it there only; the frontmatter title is kept for
+// the <title> tag and social meta.
+body[data-slug="index"] .article-title {
+  display: none;
+}
+
 // The recent-notes plugin (github:quartz-community/recent-notes) renders
 // its entries as oversized heading links with the date on its own line,
 // which reads very differently from the plain bulleted link list used for

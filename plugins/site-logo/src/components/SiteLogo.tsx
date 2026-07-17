@@ -34,7 +34,7 @@ SiteLogo.css = `
 .page-logo-text {
   font-family: var(--headerFont);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   color: var(--secondary);
   white-space: nowrap;
 }

@@ -33,5 +33,5 @@
   <text x="172" y="110" class="mono text-accent" font-size="9" opacity="0.2">2</text>
   <text x="177" y="121" class="mono text-accent" font-size="8" opacity="0.1">6</text>
 
-  <text x="100" y="165" class="mono text-brand" text-anchor="middle">OffByPi</text>
+  <text x="100" y="165" class="mono text-brand" text-anchor="middle">OffBy<tspan font-size="33px">π</tspan></text>
 </svg>

@@ -1,5 +1,5 @@
 ---
-title: OffByPi
+title: OffByπ
 ---
 
 Welcome to my personal developer hub and technical workshop.
