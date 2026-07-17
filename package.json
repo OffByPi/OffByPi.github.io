@@ -13,7 +13,9 @@
   },
   "scripts": {
     "quartz": "./quartz/bootstrap-cli.mjs",
-    "docs": "npx quartz build --serve -d docs",
+    "build": "node ./quartz/bootstrap-cli.mjs build",
+    "serve": "node ./quartz/bootstrap-cli.mjs build --serve",
+    "docs": "node ./quartz/bootstrap-cli.mjs build --serve -d docs",
     "check": "tsc --noEmit && npx prettier . --check",
     "format": "npx prettier . --write",
     "test": "tsx --test",
