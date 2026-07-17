@@ -933,8 +933,12 @@ export async function regeneratePluginIndex(options: { verbose?: boolean } = {})
 
     const dtsContent = fs.readFileSync(distIndex, "utf-8")
     const exportedNames = parseExportsFromDts(dtsContent)
-    const named = exportedNames.filter((e) => !e.startsWith("type "))
-    const types = exportedNames.filter((e) => e.startsWith("type ")).map((e) => e.slice(5))
+    const explicitNamed = exportedNames.filter((e) => !e.startsWith("type "))
+    const named = explicitNamed.filter((n) => hasRuntimeDeclaration(n, dtsContent))
+    const types = [
+      ...exportedNames.filter((e) => e.startsWith("type ")).map((e) => e.slice(5)),
+      ...explicitNamed.filter((n) => !hasRuntimeDeclaration(n, dtsContent)),
+    ]
 
     const overridable = named.filter((n) => isOverridableExport(n, dtsContent))
     const passthrough = named.filter((n) => !isOverridableExport(n, dtsContent))
@@ -956,7 +960,7 @@ export async function regeneratePluginIndex(options: { verbose?: boolean } = {})
   // Type re-exports
   for (const [pluginName, { types }] of pluginExports) {
     if (types.length > 0) {
-      lines.push(`export type { ${types.join(", ")} } from "./${pluginName}"`)
+      lines.push(`export type { ${types.join(", ")} } from "./${pluginName}/dist/index.js"`)
     }
   }
 
@@ -965,7 +969,7 @@ export async function regeneratePluginIndex(options: { verbose?: boolean } = {})
     if (passthrough.length === 0) continue
     const unique = passthrough.filter((n) => (nameCount.get(n) ?? 0) === 1)
     if (unique.length > 0) {
-      lines.push(`export { ${unique.join(", ")} } from "./${pluginName}"`)
+      lines.push(`export { ${unique.join(", ")} } from "./${pluginName}/dist/index.js"`)
     }
   }
   lines.push("")
@@ -1044,6 +1048,17 @@ function isOverridableExport(name: string, dtsContent: string): boolean {
   const match = dtsContent.match(declPattern)
   if (!match) return false
   return PLUGIN_TYPE_PATTERN.test(match[1])
+}
+
+// A name is only a real runtime export if it's declared as a const/function/class
+// in this .d.ts. Re-exported interfaces/type aliases (e.g. `export { Foo } from
+// './types.js'` where Foo is type-only) look identical to value re-exports in .d.ts
+// syntax unless explicitly marked `export type`, so we check for a local runtime
+// declaration to tell them apart.
+function hasRuntimeDeclaration(name: string, dtsContent: string): boolean {
+  const declName = resolveOriginalName(name, dtsContent)
+  const declPattern = new RegExp(`declare\\s+(?:const|function|class)\\s+${declName}\\b`)
+  return declPattern.test(dtsContent)
 }
 
 function parseExportsFromDts(content: string): string[] {
