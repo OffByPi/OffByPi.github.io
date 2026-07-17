@@ -33,48 +33,100 @@ body[data-slug="index"] .article-title {
   display: none;
 }
 
+// The homepage ("Systems Architecture & Lab Notes") is styled as an
+// editorial dashboard rather than a default wiki: a large low-contrast
+// hero greeting up top, no literal <hr> dividers between sections (spacing
+// only), and card-like feeds instead of bulleted lists.
+body[data-slug="index"] {
+  // The page frame (quartz/components/frames/DefaultFrame.tsx) hardcodes an
+  // <hr> between the article content and the afterBody section (recent-notes)
+  // on every page. Hide it here so the homepage relies on whitespace instead.
+  .center > hr {
+    display: none;
+  }
+
+  .markdown-preview-view > h2:first-child {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gray);
+    margin-top: 0;
+  }
+
+  .markdown-preview-view > h2:first-child + p {
+    font-size: 1.15rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+  }
+
+  .markdown-preview-view > h2:not(:first-child) {
+    margin-top: 2.5rem;
+  }
+
+  // Featured References: drop the markdown bullet list marker in favor of
+  // whitespace-separated blocks so each reference reads as a curated
+  // portal entry rather than a compressed list item.
+  .markdown-preview-view > ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 1rem;
+
+    & > li {
+      margin: 0 0 1.5rem 0;
+      line-height: 1.6;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
 // The recent-notes plugin (github:quartz-community/recent-notes) renders
-// its entries as oversized heading links with the date on its own line,
-// which reads very differently from the plain bulleted link list used for
-// Featured References on the homepage. Restyle it to match: a normal
-// bulleted list with body-sized chip links and the date inline as trailing
-// meta text.
+// its entries as oversized heading links with the date on its own line.
+// Restyle as a modern blog-feed rhythm: no bullet marker, an accent-colored
+// title, the date below in a small muted color, and clear vertical spacing
+// between entries.
 .recent-notes {
-  // The plugin hardcodes its title as an <h3>, which renders noticeably
-  // smaller than the <h2> markdown heading used for "Featured References".
-  // Match the h2 styling so both section titles read at the same size.
   & > h3 {
     font-size: 1.4rem;
     margin-top: 1.25rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
   }
 
   & > ul.recent-ul {
-    list-style: disc;
-    padding-left: 40px;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
 
     & > li {
-      margin: 0;
+      margin: 0 0 1.5rem 0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
 
       & > .section {
         display: flex;
-        flex-wrap: wrap;
-        align-items: baseline;
-        column-gap: 0.4em;
+        flex-direction: column;
+        gap: 0.25rem;
 
         & > .desc > h3 {
-          display: inline;
-          font-size: 1rem;
-          font-weight: inherit;
+          display: block;
+          font-size: 1.1rem;
+          font-weight: 600;
 
           & > a {
-            background-color: var(--highlight);
+            background-color: transparent;
+            color: var(--secondary);
           }
         }
 
         & > .meta {
           margin: 0;
-          opacity: 0.6;
+          font-size: 0.85rem;
+          color: var(--gray);
+          opacity: 1;
         }
       }
     }
