@@ -23,3 +23,51 @@ footer > p {
 .explorer button.desktop-explorer {
   display: none !important;
 }
+
+// The recent-notes plugin (github:quartz-community/recent-notes) renders
+// its entries as oversized heading links with the date on its own line,
+// which reads very differently from the plain bulleted link list used for
+// Featured References on the homepage. Restyle it to match: a normal
+// bulleted list with body-sized chip links and the date inline as trailing
+// meta text.
+.recent-notes {
+  // The plugin hardcodes its title as an <h3>, which renders noticeably
+  // smaller than the <h2> markdown heading used for "Featured References".
+  // Match the h2 styling so both section titles read at the same size.
+  & > h3 {
+    font-size: 1.4rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  & > ul.recent-ul {
+    list-style: disc;
+    padding-left: 40px;
+
+    & > li {
+      margin: 0;
+
+      & > .section {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        column-gap: 0.4em;
+
+        & > .desc > h3 {
+          display: inline;
+          font-size: 1rem;
+          font-weight: inherit;
+
+          & > a {
+            background-color: var(--highlight);
+          }
+        }
+
+        & > .meta {
+          margin: 0;
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+}
