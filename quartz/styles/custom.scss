@@ -7,6 +7,23 @@ footer > p {
   display: none;
 }
 
+// With the "Created with Quartz" paragraph above hidden, the plugin's own
+// negative margin-top on the links list (meant to pull it up against that
+// paragraph) instead leaves the remaining GitHub link floating disconnected
+// at the bottom-left of the content column. Anchor it as a proper footer
+// strip: centered, with a subtle top rule to separate it from the page.
+footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--lightgray);
+  text-align: center;
+
+  & > ul {
+    margin-top: 0;
+    justify-content: center;
+  }
+}
+
 // The explorer plugin (github:quartz-community/explorer) always renders a
 // collapse chevron next to every folder, even when a folder's mapFn has
 // stripped its children to make it a plain single link (e.g. the Blog quick
@@ -48,7 +65,7 @@ body[data-slug="index"] {
   .markdown-preview-view > h2:first-child {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--gray);
+    color: var(--tertiary);
     margin-top: 0;
   }
 
