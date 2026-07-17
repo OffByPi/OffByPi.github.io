@@ -2,9 +2,9 @@
 title: OffByπ
 ---
 
-## Systems Architecture & Lab Notes
+## Out of Bounds Journal
 
-Welcome to my personal workshop. I am a software architect and systems programmer. This space serves as my digital garden—a pragmatic, zero-fluff collection of Unix/Linux systems architecture notes, custom automation workflows, and hands-on lab journals.
+A personal scratchpad for things I build, explore, or break. Driven by a habit of taking things apart to see how they tick, this space covers software, systems, and hardware. It holds raw technical notes, deep dives, and thoughts—mostly written so my future self doesn't have to re-solve the same problems.
 
 ## 🌱 Featured References
 
