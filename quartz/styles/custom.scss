@@ -1,5 +1,15 @@
 @use "./variables.scss" as *;
 
+// Give the left sidebar a hairline separator from the main content column.
+// Desktop-only: on mobile the sidebar drops out of the grid into a plain
+// horizontal row above the content, where a right border reads as a stray
+// line rather than a column divider.
+@media all and ($desktop) {
+  .sidebar.left {
+    border-right: 1px solid var(--lightgray);
+  }
+}
+
 // The footer plugin (github:quartz-community/footer) hardcodes a "Created
 // with Quartz vX.X.X" line linking to quartz.jzhao.xyz, with no option to
 // disable it — hide it here since this isn't a Quartz-branded site.
