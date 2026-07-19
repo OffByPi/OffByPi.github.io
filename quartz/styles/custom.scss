@@ -1,5 +1,36 @@
 @use "./variables.scss" as *;
 
+// Tighten the default sidebar/heading spacing for a denser, more
+// technical/terminal feel than Quartz's defaults ($topSpacing and the base
+// h1-h6 margins are left untouched so upstream merges to base.scss stay
+// conflict-free).
+.sidebar {
+  gap: 1rem;
+  padding-top: 3.5rem;
+}
+
+.page-header {
+  margin-top: 3.5rem;
+}
+
+h1 {
+  margin-top: 1.5rem;
+}
+
+h2 {
+  margin-top: 1.25rem;
+}
+
+h3 {
+  margin-top: 1.1rem;
+}
+
+h4,
+h5,
+h6 {
+  margin-top: 1rem;
+}
+
 // Give the left sidebar a hairline separator from the main content column.
 // Desktop-only: on mobile the sidebar drops out of the grid into a plain
 // horizontal row above the content, where a right border reads as a stray
