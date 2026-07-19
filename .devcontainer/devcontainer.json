@@ -1,0 +1,8 @@
+{
+  "name": "light-no-gui",
+  "image": "mcr.microsoft.com/devcontainers/base:trixie",
+  "features": {
+    "ghcr.io/jsburckhardt/devcontainer-features/lazygit:1": {},
+    "ghcr.io/devcontainers/features/node:2": {}
+  }
+}
