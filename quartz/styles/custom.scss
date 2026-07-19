@@ -31,6 +31,13 @@ h6 {
   margin-top: 1rem;
 }
 
+// The default page frame renders a bare <hr> between the content and the
+// footer with no styling hook. It reads as a stray divider rather than an
+// intentional section break, so hide it rather than editing the core frame.
+.center:not(.full-width) > hr {
+  display: none;
+}
+
 // Give the left sidebar a hairline separator from the main content column.
 // Desktop-only: on mobile the sidebar drops out of the grid into a plain
 // horizontal row above the content, where a right border reads as a stray
