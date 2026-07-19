@@ -74,7 +74,7 @@ footer {
 
 // The explorer plugin (github:quartz-community/explorer) always renders a
 // collapse chevron next to every folder, even when a folder's mapFn has
-// stripped its children to make it a plain single link (e.g. the Blog quick
+// stripped its children to make it a plain single link (e.g. the Posts quick
 // link in quartz.ts). Hide the chevron specifically when there's nothing to
 // expand, so childless folders read as plain links instead of broken toggles.
 .folder-container:has(+ .folder-outer .content:empty) .folder-icon {
@@ -82,7 +82,7 @@ footer {
 }
 
 // Hide the explorer's own "Knowledge Base" heading/collapse bar so the
-// top-level items (Blog, Notes, About, ...) read as a flat menu instead of
+// top-level items (Posts, Notes, ...) read as a flat menu instead of
 // being nested under a title. Content stays visible since nothing else
 // toggles the "collapsed" class on desktop without this button.
 .explorer button.desktop-explorer {
@@ -146,10 +146,12 @@ body[data-slug="index"] {
 // title, the date below in a small muted color, and clear vertical spacing
 // between entries.
 .recent-notes {
+  margin-top: 2.5rem;
+
   & > h3 {
     font-size: 1.4rem;
     margin-top: 1.25rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.75rem;
   }
 
   & > ul.recent-ul {
