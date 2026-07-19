@@ -37,6 +37,23 @@ function pathToRoot(slug2) {
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
+
+// src/i18n/locales/en-US.ts
+var en_US_default = {
+  components: {
+    siteLogo: {
+      homeLabel: "Home"
+    }
+  }
+};
+
+// src/i18n/index.ts
+var locales = {
+  "en-US": en_US_default
+};
+function i18n(locale) {
+  return locales[locale] || en_US_default;
+}
 var l;
 l = { __e: function(n2, l2, u3, t2) {
   for (var i2, r2, o2; l2 = l2.__; ) if ((i2 = l2.__c) && !i2.__) try {
@@ -62,7 +79,8 @@ function u2(e2, t2, n2, o2, i2, u3) {
 var SiteLogo = ({ fileData, cfg, displayClass }) => {
   const baseDir = pathToRoot(fileData.slug);
   const logoSrc = joinSegments(baseDir, "static/logo-header.svg");
-  const title = cfg?.pageTitle ?? "Home";
+  const t2 = i18n(cfg?.locale ?? "en-US").components.siteLogo;
+  const title = cfg?.pageTitle ?? t2.homeLabel;
   return /* @__PURE__ */ u2("a", { href: baseDir, class: classNames(displayClass, "page-logo"), "aria-label": title, children: [
     /* @__PURE__ */ u2("img", { src: logoSrc, alt: "", width: "141", height: "44" }),
     /* @__PURE__ */ u2("span", { class: "page-logo-text", children: title })
