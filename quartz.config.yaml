@@ -13,7 +13,7 @@ configuration:
     - .obsidian
   theme:
     fontOrigin: googleFonts
-    cdnCaching: true
+    cdnCaching: false
     typography:
       header: Space Mono
       body: Source Sans Pro
@@ -99,7 +99,7 @@ plugins:
     enabled: false
     order: 92
   - source: github:quartz-community/fonts
-    enabled: true
+    enabled: false
   - source: github:quartz-community/remove-draft
     enabled: true
   - source: github:quartz-community/explicit-publish
