@@ -12,14 +12,14 @@ A `Makefile` declares build targets, their dependencies, and the recipe (shell c
 CC=gcc
 CFLAGS=-Wall -Werror -fPIC
 LDFLAGS=-shared
-SRC=sybille.c
+SRC=mylib.c
 OBJ=$(SRC:.c=.o)
-LIB=libsybille.so
+LIB=libmylib.so
 
 all: $(LIB)
 
 $(LIB): $(OBJ)
-	$(CC) $(LDFLAGS) -L. -o $@ $^ -lsyb
+	$(CC) $(LDFLAGS) -L. -o $@ $^ -l<dependency>
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
