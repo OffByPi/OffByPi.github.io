@@ -31,10 +31,12 @@ Host *
 On Windows, disable the `OpenSSH Authentication Agent` service (set startup type to Disabled) so it doesn't conflict. If a `Host` block already sets a specific `IdentityAgent` (e.g. per-account aliases, see [[ssh#Multiple Keys for the Same Host (`~/.ssh/config`)]]), the more specific match wins over `Host *`.
 
 > **macOS still needs `SSH_AUTH_SOCK` in `config.fish`:** GUI apps and tools that talk to the agent directly (not through `ssh`/`scp`) don't read `~/.ssh/config`, so `IdentityAgent` alone isn't enough on macOS. Set the variable too (see [[fish-variables]]):
-> ```fish
-> set -Ux SSH_AUTH_SOCK ~/.bitwarden-ssh-agent.sock
-> ```
 
+ ```fish
+ set -gx SSH_AUTH_SOCK ~/.bitwarden-ssh-agent.sock
+ ```
+
+> `VSCodium` launches its processes using the configured login shell for the current user, so make sure that shell is configured to point at the right `SSH_AUTH_SOCK`.
 ## Test It
 
 `IdentityAgent` is read by `ssh`/`scp`, not by `ssh-add` (which only looks at `SSH_AUTH_SOCK`), so verify through an actual connection instead:

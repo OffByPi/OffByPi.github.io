@@ -1,10 +1,6 @@
 ---
-title: Devpod
-tags:
-  - tools
-  - dev
-  - containers
-  - vscode
+title: "Devpod"
+tags: [tools, dev, containers, vscode]
 ---
 `devpod` is an open-source client for [devcontainers](https://containers.dev/), spinning up a reproducible dev environment from a repo's [[devcontainer-json|devcontainer.json]] on any provider (Docker, Podman, Kubernetes, SSH, cloud VMs).
 
@@ -16,58 +12,17 @@ By default `devpod up` creates one persistent workspace per repo, named after it
 
 ## Install
 
-1. Install the `devpod` CLI from [devpod.sh](https://devpod.sh/).
-2. Add a provider:
-```bash
-devpod provider add docker
-```
-3. (Optional) point it to `podman`:
-```bash
-devpod provider set-options docker -o DOCKER_PATH=$(which podman)
-```
-4. Check it's working:
-```bash
-devpod provider list
-```
+Install the `devpod` CLI from [devpod.sh](https://devpod.sh/), then add and verify a provider. To use Podman instead of Docker, point the `docker` provider at the `podman` binary (see Cheatsheet).
 
-## Cheatsheet
-
-### Create and Open a Workspace
+## Create and Open a Workspace
 
 `devpod up` reads `.devcontainer/devcontainer.json` from the target repo, builds/pulls the image, and provisions the container with your dotfiles and IDE tooling.
 
-```bash
-devpod up <repo-url-or-path>
-```
-
 > If the repo has no `devcontainer.json`, devpod auto-detects the language (e.g. Python via `requirements.txt`/`pyproject.toml`) and generates one for you using a sane default image (e.g. `mcr.microsoft.com/devcontainers/python:3`), writing it into `.devcontainer/` so it's there to edit afterward.
-
-### List Workspaces and Their Status
-
-```bash
-devpod list
-```
-
-### Stop a Workspace Without Deleting It
-
-```bash
-devpod stop <workspace-name>
-```
-
-### Delete a Workspace
-
-Removes the workspace and its volumes, unless `--keep-volumes` is passed.
-
-```bash
-devpod delete <workspace-name>
-```
 
 ## Using the VS Code / VSCodium Extension
 
-Install the extension (VSCodium build shown; same ID works for VS Code):
-```bash
-codium --install-extension 3timeslazy.vscodium-devpodcontainers
-```
+Install the extension (VSCodium build shown in the Cheatsheet; same ID works for VS Code):
 
 1. Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`).
 2. Run **Devpod: Open Workspace** and point it at a local folder or Git URL.
@@ -85,11 +40,7 @@ codium --install-extension 3timeslazy.vscodium-devpodcontainers
 
 ## Dotfiles
 
-```bash
-devpod context set-options -o DOTFILES_URL=<dotfiles-repo-url>
-```
-
-Applied context-wide: every new workspace, on any provider, is created with this dotfiles repo — no need to pass `--dotfiles` per `devpod up` call. Devpod clones the repo into the workspace and looks for an install script (`install.sh`, `install`, `bootstrap.sh`, `bootstrap`, `script/bootstrap`, `setup.sh`, `setup`, `script/setup`); if none is found, it falls back to symlinking every hidden file in the repo root straight into `$HOME`, `/etc/skel`-style — no script required for a simple dotfiles repo.
+Set a dotfiles URL context-wide so every new workspace, on any provider, is created with it — no need to pass `--dotfiles` per `devpod up` call. Devpod clones the repo into the workspace and looks for an install script (`install.sh`, `install`, `bootstrap.sh`, `bootstrap`, `script/bootstrap`, `setup.sh`, `setup`, `script/setup`); if none is found, it falls back to symlinking every hidden file in the repo root straight into `$HOME`, `/etc/skel`-style — no script required for a simple dotfiles repo.
 
 Override per-workspace with `devpod up <repo> --dotfiles <url> --dotfiles-script <path>`.
 
@@ -100,9 +51,57 @@ Devpod automatically forwards your local git credentials into every workspace, n
 * **SSH keys** — via SSH agent forwarding, configured automatically on the workspace's SSH connection. Your private key never gets copied into the container, only the agent socket, so it relies on the key being loaded in your host's `ssh-agent` (`ssh-add -l`).
 * **HTTPS credentials** — forwarded via a git credential helper.
 
+> Commit *signing* via SSH has had rough edges with some third-party agents (e.g. 1Password's SSH agent) — worth testing if you rely on it.
+
+## Cheatsheet
+
+### Install and Configure a Provider
+
 ```bash
-# disable automatic SSH credential forwarding globally
-devpod context set-options default -o SSH_INJECT_GIT_CREDENTIALS=false
+devpod provider add docker
+devpod provider set-options docker -o DOCKER_PATH=$(which podman)   # optional: use Podman
+devpod provider list
 ```
 
-> Commit *signing* via SSH has had rough edges with some third-party agents (e.g. 1Password's SSH agent) — worth testing if you rely on it.
+### Create and Open a Workspace
+
+```bash
+devpod up <repo-url-or-path>
+```
+
+### List Workspaces and Their Status
+
+```bash
+devpod list
+```
+
+### Stop a Workspace Without Deleting It
+
+```bash
+devpod stop <workspace-name>
+```
+
+### Delete a Workspace
+
+```bash
+# Removes the workspace and its volumes, unless --keep-volumes is passed
+devpod delete <workspace-name>
+```
+
+### Install the VS Code / VSCodium Extension
+
+```bash
+codium --install-extension 3timeslazy.vscodium-devpodcontainers
+```
+
+### Set Default Dotfiles Repo
+
+```bash
+devpod context set-options -o DOTFILES_URL=<dotfiles-repo-url>
+```
+
+### Disable Automatic SSH Credential Forwarding
+
+```bash
+devpod context set-options default -o SSH_INJECT_GIT_CREDENTIALS=false
+```

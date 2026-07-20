@@ -6,46 +6,53 @@ On macOS and Windows, [[podman]] runs containers inside a lightweight Linux VM m
 
 ---
 
-## Common Commands
+## VM Lifecycle
 
-* `podman machine init` — Create the default VM (only needed once).
-* `podman machine start` / `podman machine stop` — Start / stop the VM.
-* `podman machine list` — Show configured machines and their status.
-* `podman machine ssh` — Open a shell inside the VM.
-* `podman machine rm` — Delete the VM.
-
-```bash
-# First-time setup on macOS/Windows
-podman machine init
-podman machine start
-```
-
-If containers become unreachable or behave oddly after a host sleep/wake cycle, `podman machine stop && podman machine start` usually resolves it before reaching for `podman system reset`.
+If containers become unreachable or behave oddly after a host sleep/wake cycle, stopping and starting the machine usually resolves it before reaching for `podman system reset`.
 
 ## Tweak Machine Settings
 
-Tweak CPU, memory, or disk allocation with `podman machine set` (stop the machine first) or at creation time with `podman machine init`:
+Tweak CPU, memory, or disk allocation with `podman machine set` (stop the machine first) or at creation time with `podman machine init`.
 
 > **No live resizing:** `podman machine set` refuses to run against a started VM — stop it first, apply the change, then start it back up.
 
+## Check Resource Usage
+
+`podman machine inspect` shows the VM's configured CPUs, memory, and disk allocation (defaults to the default machine if none is named). For live usage inside the VM, `podman machine ssh` in and use standard Linux tools. `podman system df` reports disk usage by images/containers/volumes instead of the VM as a whole.
+
+## Cheatsheet
+
+### Common Commands
+
 ```bash
-# Adjust an existing machine's resources
+podman machine init      # create the default VM (only needed once)
+podman machine start     # start the VM
+podman machine stop      # stop the VM
+podman machine list      # show configured machines and their status
+podman machine ssh       # open a shell inside the VM
+podman machine rm        # delete the VM
+```
+
+### Resize an Existing Machine
+
+```bash
 podman machine stop
 podman machine set --cpus 4 --memory 4096
+```
 
-# Or set them when creating a new machine
+### Set Resources at Creation Time
+
+```bash
 podman machine init --cpus 4 --memory 4096 --disk-size 50
 ```
 
-## Check Resource Usage
+### Inspect Resource Allocation
 
 ```bash
 podman machine inspect <machine-name>
 ```
 
-Shows the VM's configured CPUs, memory, and disk allocation (defaults to the default machine if `<machine-name>` is omitted).
-
-For live usage inside the VM, `podman machine ssh` in and use standard Linux tools:
+### Check Usage Inside the VM
 
 ```bash
 podman machine ssh
@@ -55,7 +62,7 @@ top
 df -h
 ```
 
-`podman system df` reports disk usage by images/containers/volumes instead of the VM as a whole:
+### Check Podman Disk Usage
 
 ```bash
 podman system df

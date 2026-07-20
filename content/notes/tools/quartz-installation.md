@@ -1,31 +1,27 @@
 ---
-title: Quartz installation instructions
-tags:
-  - dev
-  - tools
-  - markdown
-  - web
+title: "Quartz Installation Instructions"
+tags: [dev, tools, markdown, web]
 ---
 Instructions to install `quartz` locally.
 
 ---
 
-## Installation instructions
+## Installation Instructions
 
-### 1. Clone the repository
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/jackyzha0/quartz.git <target_directory>
-cd <target_directory>
+git clone https://github.com/jackyzha0/quartz.git <target-directory>
+cd <target-directory>
 ```
 
-### 2. Install the dependencies
+### 2. Install the Dependencies
 
 ```bash
 npm install
 ```
 
-### 3. Run interactive initialisation
+### 3. Run Interactive Initialization
 
 ```bash
 npx quartz create
@@ -49,7 +45,7 @@ It will ask how quartz should resolve links:
 
 It will ask the base URL for your site.
 
-### 4. Check the installation
+### 4. Check the Installation
 
 The following command will spawn a development server on `http://localhost:8080`.
 
@@ -57,7 +53,7 @@ The following command will spawn a development server on `http://localhost:8080`
 npx quartz build --serve
 ```
 
-### 5. Set your git remote
+### 5. Set Your Git Remote
 
 Rename current origin to be `upstream`:
 ```bash
@@ -66,10 +62,10 @@ git remote rename origin vendor
 
 Add your actual remote as origin:
 ```bash
-git remote add origin <your_remote_repository>
+git remote add origin <remote-repository-url>
 ```
 
-Commit initialisation changes:
+Commit initialization changes:
 ```bash
 git add "."
 git commit -m "chore: initialized quartz"
