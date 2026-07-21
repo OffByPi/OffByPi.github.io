@@ -16,6 +16,6 @@ Settings → Privacy and security → Security → Secure DNS → Custom, then s
 
 ### Block Ads Through DNS
 
-```
+```text
 https://dns.adguard-dns.com/dns-query
 ```

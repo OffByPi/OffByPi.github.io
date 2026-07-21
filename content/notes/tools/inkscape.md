@@ -23,4 +23,4 @@ Clean up each generated path with the **Node** tool, removing useless nodes. Sel
 
 ## Simplify
 
-Traced paths can be too heavy to import into modelling tools like Fusion 360. Reduce node count with **Path → Simplify**.
+Traced paths can be too heavy to import into modeling tools like Fusion 360. Reduce node count with **Path → Simplify**.

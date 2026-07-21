@@ -1,16 +1,12 @@
 ---
-title: Quartz
-tags:
-  - dev
-  - tools
-  - markdown
-  - web
+title: "Quartz"
+tags: [dev, tools, markdown, web]
 ---
 Cheatsheet for configuring and extending `quartz` beyond the defaults. See [[quartz-installation]] for setup.
 
 ---
 
-## Override a plugin's behaviour
+## Override a plugin's behavior
 
 Call the plugin's constructor directly in `quartz.ts` instead of relying on the config-driven defaults. This lets you pass options a plugin exposes but that `quartz.config.ts` doesn't surface.
 

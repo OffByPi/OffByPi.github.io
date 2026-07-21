@@ -12,7 +12,7 @@ tags: [tools, cli, ssh]
 
 Type on a new line (after `Enter`) when the session is frozen or unresponsive:
 
-```
+```text
 ~.
 ```
 
@@ -20,7 +20,7 @@ Terminates the connection immediately from the client side, no server cooperatio
 
 ### Add a Forward to a Live Session (`~C`)
 
-```
+```text
 ~C
 ```
 
@@ -85,7 +85,7 @@ Appends the public key to `~/.ssh/authorized_keys` on `<host>`, creating the fil
 
 Define a separate `Host` alias per identity, each pointing at `github.com` with its own key:
 
-```
+```sshconfig
 Host github.com-personal
     HostName github.com
     User git

@@ -23,7 +23,7 @@ sudo mkdir /mnt/utm
 
 2. Add the shared folder to `/etc/fstab`:
 
-```
+```ini
 share /mnt/utm 9p trans=virtio,version=9p2000.L,rw,_netdev,nofail,auto 0 0
 ```
 
@@ -45,6 +45,6 @@ mkdir ~/utm
 
 3. Add the bind mount to `/etc/fstab`, mapping the host UID/GID (`502/1000`) to your user:
 
-```
+```ini
 /mnt/utm /home/user/utm fuse.bindfs map=502/1000:@20/@1000,x-systemd.requires=/mnt/utm,_netdev,nofail,auto 0 0
 ```

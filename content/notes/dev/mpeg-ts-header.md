@@ -58,7 +58,7 @@ A 42-bit value packed into 6 bytes as base + extension:
 | Reserved | 6 | Ignore; typically all `1`s. |
 | `program_clock_reference_extension` | 9 | Count of a 27 MHz clock, for sub-tick precision. |
 
-```
+```text
 PCR (27 MHz) = base * 300 + extension
 PCR (seconds) = PCR (27 MHz) / 27_000_000
 ```

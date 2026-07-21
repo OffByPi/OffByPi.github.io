@@ -38,13 +38,11 @@ $EDITOR .git/info/exclude
 
 ## Precedence & Checking
 
-Git applies ignore rules in this order (later can override earlier via negation `!pattern`):
+Git applies ignore rules in this order, with more specific (deeper) `.gitignore` files taking precedence over broader ones, and negation (`!pattern`) able to override an earlier match:
 
 1. `.git/info/exclude`
-2. `.gitignore` files (from repo root down to the file's directory)
+2. `.gitignore` files, read from the repo root down to the file's directory
 3. Global excludes file (`core.excludesFile`)
-
-Actually, more precisely: patterns read from `$GIT_DIR/info/exclude`, then `.gitignore` in each directory, then the global file — with more specific (deeper) `.gitignore` files taking precedence over broader ones.
 
 ```bash
 # Check why a file is ignored (which rule/file matches)

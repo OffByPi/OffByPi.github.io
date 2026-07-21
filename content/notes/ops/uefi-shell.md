@@ -24,7 +24,7 @@ Many motherboards expose it directly from the UEFI firmware's Boot menu. If not,
 
 ### Navigate Filesystems
 
-```
+```text
 map                    # list filesystems (FS0:, FS1:, ...)
 FS0:                   # switch into a filesystem
 ls -r -b FS0:          # list contents recursively, paginated
@@ -34,13 +34,13 @@ help -b <command>      # help for a specific command
 
 ### Boot an OS Directly
 
-```
+```text
 FS0:\EFI\BOOT\bootx64.efi
 ```
 
 ### Inspect and Edit Boot Entries
 
-```
+```text
 bcfg boot dump -v                                  # show current boot order
 bcfg boot add <index> <path.efi> "<description>"   # add a boot entry
 bcfg boot rm <index>                               # remove a boot entry
@@ -48,7 +48,7 @@ bcfg boot rm <index>                               # remove a boot entry
 
 ### Add Kernel Parameters to a Boot Entry
 
-```
+```text
 edit FS0:\EFI\GRUB\option.txt
 # write params, e.g.: root=/dev/sdb3 rw initrd=/boot/initrd.img
 
@@ -57,6 +57,6 @@ bcfg boot -opt <index> FS0:\EFI\GRUB\option.txt
 
 ### Exit to the Boot Menu
 
-```
+```text
 exit
 ```

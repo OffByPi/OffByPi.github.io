@@ -17,12 +17,12 @@ Bitwarden's desktop app can act as an [[ssh]] agent, storing your private keys i
 
 Prefer `IdentityAgent` in `~/.ssh/config` over exporting `SSH_AUTH_SOCK` — it's scoped to SSH itself, applies uniformly across shells (bash, zsh, fish — see [[fish-variables]]), and needs no rc-file edits:
 
-```
+```sshconfig
 Host *
     IdentityAgent /Users/<user>/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock
 ```
 
-```
+```sshconfig
 # macOS (.dmg / Homebrew) / Linux
 Host *
     IdentityAgent /Users/<user>/.bitwarden-ssh-agent.sock
@@ -37,6 +37,7 @@ On Windows, disable the `OpenSSH Authentication Agent` service (set startup type
  ```
 
 > `VSCodium` launches its processes using the configured login shell for the current user, so make sure that shell is configured to point at the right `SSH_AUTH_SOCK`.
+
 ## Test It
 
 `IdentityAgent` is read by `ssh`/`scp`, not by `ssh-add` (which only looks at `SSH_AUTH_SOCK`), so verify through an actual connection instead:

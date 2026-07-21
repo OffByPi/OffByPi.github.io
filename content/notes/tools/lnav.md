@@ -40,7 +40,7 @@ journalctl -f | lnav       # tail piped input
 
 ### Navigate
 
-```
+```keymap
 /<regex>   # search
 n / N      # next / previous search match
 e / E      # next / previous error
@@ -52,13 +52,13 @@ q          # quit
 
 ### Query with SQL
 
-```
+```sql
 ;SELECT log_time, log_body FROM syslog_log WHERE log_level = 'error';
 ```
 
 ### List Available Tables
 
-```
+```sql
 ;SELECT name FROM sqlite_master WHERE type='table';
 ```
 
@@ -66,7 +66,7 @@ Or press `;` then `Tab` on an empty query to browse via autocomplete.
 
 ### Filter Lines
 
-```
+```keymap
 :filter-in <regex>       # show only matching lines
 :filter-out <regex>      # hide matching lines
 :delete-filter <regex>   # remove a filter by its pattern
@@ -76,7 +76,7 @@ Or press `;` then `Tab` on an empty query to browse via autocomplete.
 
 ### Toggle Views
 
-```
+```keymap
 i   # histogram of log volume over time
 p   # pretty-print / detail view of the selected line
 ?   # full keybinding help

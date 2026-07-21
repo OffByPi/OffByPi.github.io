@@ -10,7 +10,7 @@ tags: [tools, dev, containers, vscode]
 
 ## Location
 
-```
+```text
 <repo-root>/.devcontainer/devcontainer.json
 # or for a single-file setup:
 <repo-root>/.devcontainer.json

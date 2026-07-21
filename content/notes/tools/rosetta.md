@@ -19,7 +19,7 @@ The resulting binary runs under Rosetta on Apple Silicon.
 
 ## Compile Rust for x86_64
 
-Add the target once, then build against it explicitly.
+`cargo build` targets the host's native architecture by default. Add the x86_64 target once via `rustup`, then pass `--target` on every build that needs it.
 
 ---
 

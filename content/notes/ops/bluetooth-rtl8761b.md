@@ -16,7 +16,7 @@ sudo dmesg | grep bluetooth
 
 A failing device shows something like:
 
-```
+```text
 bluetooth hci0: loading /lib/firmware/rtl_bt/rtl8761bu_config.bin failed with error -40
 bluetooth hci0: Direct firmware load for rtl_bt/rtl8761bu_config.bin failed with error -40
 ```
