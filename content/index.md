@@ -9,4 +9,4 @@ A personal scratchpad for things I build, explore, or break. Driven by a habit o
 ## 🌱 Featured References
 
 - **[[notes/tools/git|Git Reference]]**: Branch management, remote pairing, and everyday recovery workflows.
-- **[[notes/dev/quartz|Quartz Setup]]**: How this digital garden is built, configured, and deployed.
+- **[[notes/dev/mpeg-ts-header|MPEG-TS Header]]**: Breaking down the 4-byte packet header that makes transport streams tickable.
