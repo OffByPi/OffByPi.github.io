@@ -224,6 +224,7 @@ plugins:
     options:
       links:
         GitHub: https://github.com/OffByPi
+        Email: mailto:hello@offbypi.dev
   - source: github:quartz-community/recent-notes
     enabled: true
     options:
