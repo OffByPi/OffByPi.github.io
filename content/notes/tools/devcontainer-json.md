@@ -93,3 +93,8 @@ For apt packages specifically, prefer the [`apt-packages`](https://github.com/ro
   }
 }
 ```
+
+## Useful features
+
+- ghcr.io/jsburckhardt/devcontainer-features/lazygit:1
+- ghcr.io/devcontainers-extra/features/uv:1
