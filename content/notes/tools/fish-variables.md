@@ -53,8 +53,12 @@ echo $<name>         # value1 value2 value3 (space-joined)
 
 ### Append/Prepend to PATH
 
+`fish_add_path` writes to `fish_user_paths`, universal (`-U`) by default — permanent across sessions and restarts. Pass `-g` for session-only.
+
 ```fish
-fish_add_path <directory>
+fish_add_path <directory>       # persistent (default, -U)
+fish_add_path -g <directory>    # session-only
+fish_add_path -m <directory>    # move to front if already present
 ```
 
 ### Inspect a Variable's Scope/Flags (`-S`)

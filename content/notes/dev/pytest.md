@@ -58,6 +58,22 @@ def test_something(request, fixture_name):
     value = request.getfixturevalue(fixture_name)
 ```
 
+## Skipping When a Dependency Is Missing
+
+`pytest.importorskip("module")` imports a module and skips the test (or whole file, at module level) if it's not installed, instead of failing with an `ImportError`.
+
+```python
+np = pytest.importorskip("numpy")
+```
+
+For conditional skips unrelated to imports, `pytest.skip` needs `allow_module_level=True` to run outside a test function — e.g. at the top of a file based on platform or environment:
+
+```python
+import sys
+if sys.platform == "win32":
+    pytest.skip("unsupported on Windows", allow_module_level=True)
+```
+
 ## Coverage
 
 Install `pytest-cov` and run with `--cov`:
@@ -96,6 +112,12 @@ pythonpath = ["ADDITIONAL_DIRECTORY1", "ADDITIONAL_DIRECTORY2"]
 ```python
 yield r  # instead of return, for teardown after
 request.getfixturevalue(fixture_name)  # resolve a fixture by name
+```
+
+### Skipping
+```python
+np = pytest.importorskip("numpy")
+pytest.skip("reason", allow_module_level=True)
 ```
 
 ### Coverage

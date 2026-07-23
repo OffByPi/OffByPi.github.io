@@ -20,6 +20,7 @@ podman <command> <options> <image>
 * `podman images` — List local images.
 * `podman exec -it <container> <cmd>` — Run a command in a running container.
 * `podman logs <container>` — Show container logs.
+* `podman stats` — Live CPU, memory, and network usage for running containers.
 * `podman stop <container>` / `podman rm <container>` — Stop / remove a container.
 * `podman build -t <name> .` — Build an image from a `Containerfile` (or `Dockerfile`).
 * `podman system reset` — Remove all containers, images, volumes, and pods, resetting Podman to its initial state.
