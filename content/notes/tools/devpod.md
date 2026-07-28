@@ -44,6 +44,10 @@ Set a dotfiles URL context-wide so every new workspace, on any provider, is crea
 
 Override per-workspace with `devpod up <repo> --dotfiles <url> --dotfiles-script <path>`.
 
+## Port Forwarding
+
+Devpod automatically forwards every port listed in `forwardPorts` from the workspace to `localhost` on your machine — no manual SSH tunnel needed, unlike a bare SSH-only setup (see [[devcontainer-gui-apps]] for an example with a VNC/noVNC desktop).
+
 ## Git Credentials
 
 Devpod automatically forwards your local git credentials into every workspace, no per-repo config needed:

@@ -74,6 +74,8 @@ For apt packages specifically, prefer the [`apt-packages`](https://github.com/ro
 * `remoteUser` — user the tooling connects as inside the container (defaults to the image's default user).
 * `mounts` — extra bind mounts beyond the automatic repo mount (e.g. SSH keys, Docker socket).
 
+> To reach a service running on the host from inside the devcontainer, use `host.containers.internal`/`host.docker.internal` instead of `localhost` — see [[podman#Reaching the Host Machine from a Container]].
+
 ## Example with Features and Hooks
 
 ```json
@@ -98,3 +100,4 @@ For apt packages specifically, prefer the [`apt-packages`](https://github.com/ro
 
 - ghcr.io/jsburckhardt/devcontainer-features/lazygit:1
 - ghcr.io/devcontainers-extra/features/uv:1
+- ghcr.io/devcontainers/features/desktop-lite:1 — see [[devcontainer-gui-apps]] for GUI apps over VNC/noVNC

@@ -70,6 +70,10 @@ systemctl --user enable --now podman.socket
 export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/podman/podman.sock"
 ```
 
+## Reaching the Host Machine from a Container
+
+To connect to a service running on the host (a local database, an API server) from inside a container, use `host.containers.internal` instead of `localhost` — Podman resolves it automatically, no extra flags or `--add-host` needed. Docker's equivalent is `host.docker.internal`; either hostname works from a Podman container. This is especially handy from a [[devcontainer-json|devcontainer]], where the workspace often needs to reach something running directly on the host.
+
 ## Cheatsheet
 
 ### Run a Container Interactively
