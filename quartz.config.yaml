@@ -83,6 +83,9 @@ plugins:
   - source: github:quartz-community/description
     enabled: true
     order: 70
+  - source: ./plugins/canonical-url
+    enabled: true
+    order: 71
   - source: github:quartz-community/latex
     enabled: true
     options:

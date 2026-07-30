@@ -1,0 +1,51 @@
+{
+  "name": "@offbypi/canonical-url",
+  "version": "1.0.0",
+  "description": "Emits a per-page <link rel=\"canonical\"> tag for Quartz sites",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "preact": "^10.0.0"
+  },
+  "dependencies": {
+    "@quartz-community/types": "github:quartz-community/types#d413569b02ff0cd9a7e8d74dee125d20a5e5ec72",
+    "@quartz-community/utils": "github:quartz-community/utils#e09d8b0bbccb46073b23c00affaf3e40a2c3b0c4"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "preact": "^10.28.2",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=22",
+    "npm": ">=10.9.2"
+  },
+  "quartz": {
+    "name": "canonical-url",
+    "displayName": "Canonical URL",
+    "category": "transformer",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "dependencies": [],
+    "defaultOrder": 71,
+    "defaultEnabled": true,
+    "defaultOptions": {}
+  }
+}

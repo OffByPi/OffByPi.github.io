@@ -31,6 +31,12 @@
       "commit": "cf2e161425165e1ac713f1feb7250b07fe0250ae",
       "installedAt": "2026-07-14T13:37:46.091Z"
     },
+    "canonical-url": {
+      "source": "./plugins/canonical-url",
+      "resolved": "/Users/dani/code/OffByPi/plugins/canonical-url",
+      "commit": "local",
+      "installedAt": "2026-07-30T07:04:14.924Z"
+    },
     "canvas-page": {
       "source": "github:quartz-community/canvas-page",
       "resolved": "https://github.com/quartz-community/canvas-page.git",
@@ -187,12 +193,6 @@
       "commit": "832871da9ab33d52f904456c1a5e14f1b2057d83",
       "installedAt": "2026-07-14T13:37:43.783Z"
     },
-    "page-title": {
-      "source": "github:quartz-community/page-title",
-      "resolved": "https://github.com/quartz-community/page-title.git",
-      "commit": "a1c1fe0a9c6a5ce1acf6efa01d473a7d9850e2a3",
-      "installedAt": "2026-07-14T13:37:45.982Z"
-    },
     "reader-mode": {
       "source": "github:quartz-community/reader-mode",
       "resolved": "https://github.com/quartz-community/reader-mode.git",
@@ -222,6 +222,12 @@
       "resolved": "https://github.com/quartz-community/search.git",
       "commit": "0f4c1a233cd03a0f562e13636b89b7708f8e2698",
       "installedAt": "2026-07-14T13:37:45.321Z"
+    },
+    "site-logo": {
+      "source": "./plugins/site-logo",
+      "resolved": "/Users/dani/code/OffByPi/plugins/site-logo",
+      "commit": "local",
+      "installedAt": "2026-07-30T07:04:14.925Z"
     },
     "spacer": {
       "source": "github:quartz-community/spacer",
