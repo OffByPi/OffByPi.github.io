@@ -42,6 +42,18 @@ ssh -R <remote-port>:<local-host>:<local-port> <user>@<remote-host>
 
 Makes `<remote-host>:<remote-port>` reach back into `<local-host>:<local-port>` on your machine — exposes a local service to the remote side.
 
+### Backgrounded Multi-Port Forward (`-N -f`)
+
+```bash
+ssh -N -f \
+    -o ExitOnForwardFailure=yes \
+    -R <remote-port-1>:<local-host>:<local-port-1> \
+    -R <remote-port-2>:<local-host>:<local-port-2> \
+    <user>@<remote-host>
+```
+
+Stack multiple `-L`/`-R` flags on one connection instead of opening a session per forward. `-N` skips executing a remote command (tunnel-only, no shell). `-f` backgrounds the process after authentication, once forwards are set up. `ExitOnForwardFailure=yes` makes `ssh` abort if any forward fails to bind, instead of silently starting with only the working ones — without it, a port clash on the remote fails open and is easy to miss.
+
 ### Identity File (`-i`)
 
 ```bash

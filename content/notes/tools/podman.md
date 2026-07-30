@@ -74,6 +74,8 @@ export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/podman/podman.sock"
 
 To connect to a service running on the host (a local database, an API server) from inside a container, use `host.containers.internal` instead of `localhost` — Podman resolves it automatically, no extra flags or `--add-host` needed. Docker's equivalent is `host.docker.internal`; either hostname works from a Podman container. This is especially handy from a [[devcontainer-json|devcontainer]], where the workspace often needs to reach something running directly on the host.
 
+> On macOS/Windows this traffic crosses the [[podman-machine]] VM boundary (host → hypervisor → guest), so throughput is noticeably worse than on Linux, where Podman talks to the kernel directly. Don't use `host.containers.internal` for data-heavy workloads on those platforms — expect it for occasional API calls, not bulk transfer.
+
 ## Cheatsheet
 
 ### Run a Container Interactively
