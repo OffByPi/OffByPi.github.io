@@ -10,7 +10,9 @@ import type {
 function canonicalUrl(ctx: BuildCtx, fileData: QuartzPluginData): string {
   const url = new URL(`https://${ctx.cfg.configuration.baseUrl ?? "example.com"}`)
   const slug = fileData.slug as FullSlug | undefined
-  return slug === undefined || slug === "404" ? url.toString() : joinSegments(url.toString(), slug)
+  return slug === undefined || slug === "404" || slug === "index"
+    ? url.toString()
+    : joinSegments(url.toString(), slug)
 }
 
 export const CanonicalUrl: QuartzTransformerPlugin = () => {

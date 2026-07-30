@@ -52,7 +52,7 @@ function stripSlashes(s2, onlyStripPrefix) {
 function canonicalUrl(ctx, fileData) {
   const url = new URL(`https://${ctx.cfg.configuration.baseUrl ?? "example.com"}`);
   const slug2 = fileData.slug;
-  return slug2 === void 0 || slug2 === "404" ? url.toString() : joinSegments(url.toString(), slug2);
+  return slug2 === void 0 || slug2 === "404" || slug2 === "index" ? url.toString() : joinSegments(url.toString(), slug2);
 }
 var CanonicalUrl = () => {
   return {
