@@ -1,6 +1,5 @@
 ---
 title: OffByπ
-description: A personal scratchpad for things I build, explore, or break — notes on software, systems, and hardware.
 ---
 
 ## Out of Bounds Journal

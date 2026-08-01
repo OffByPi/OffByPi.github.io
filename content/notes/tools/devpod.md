@@ -57,6 +57,10 @@ Devpod automatically forwards your local git credentials into every workspace, n
 
 > Commit *signing* via SSH has had rough edges with some third-party agents (e.g. 1Password's SSH agent) — worth testing if you rely on it.
 
+## Auto-Stop on Inactivity
+
+Set `INACTIVITY_TIMEOUT` on a provider (a duration like `10m` or `1h`, not a boolean) to have devpod stop the workspace's container on its own once it's been idle that long, instead of leaving it running until you `stop` it manually. State is preserved — it's a stop, not a delete — and the workspace starts back up on the next connect. Most official providers ship with this pre-configured to 5-10 minutes.
+
 ## Cheatsheet
 
 ### Install and Configure a Provider
@@ -64,6 +68,7 @@ Devpod automatically forwards your local git credentials into every workspace, n
 ```bash
 devpod provider add docker
 devpod provider set-options docker -o DOCKER_PATH=$(which podman)   # optional: use Podman
+devpod provider set-options docker -o INACTIVITY_TIMEOUT=10m        # optional: auto-stop when idle
 devpod provider list
 ```
 
