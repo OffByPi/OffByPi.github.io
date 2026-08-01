@@ -33,7 +33,11 @@ ExternalPlugin.Explorer({
 })
 
 registerCondition("is-index", (props) => props.fileData.slug === "index")
-registerCondition("is-post", (props) => (props.fileData.slug ?? "").startsWith("posts/"))
+registerCondition(
+  "is-post",
+  (props) =>
+    (props.fileData.slug ?? "").startsWith("posts/") && props.fileData.slug !== "posts/index",
+)
 
 ExternalPlugin.RecentNotes({
   filter: (f) => (f.slug ?? "").startsWith("posts/"),
