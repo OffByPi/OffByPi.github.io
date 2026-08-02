@@ -1,11 +1,16 @@
 ---
-title: "Chasing a Battery Drain on my Kobo Libra Colour"
-tags: [ereader, koreader, debugging, hardware]
-date: 2026-08-01
+title: Chasing a Battery Drain on my Kobo Libra Colour -  Part 1
+tags:
+  - ereader
+  - koreader
+  - debugging
+  - hardware
+created: 2026-08-01
+modified: 2026-08-02
 ---
 My Kobo Libra Colour was burning through ~10%/hour while I was actively reading — not suspended, just turning pages. That's high enough for an e-ink device that I went digging through the KOReader source instead of accepting it.
 
-The setup: a vendor koreader checkout (`master` @ `730285210`), one extra plugin installed (`AnnotationSync`), and the built-in BatteryStat plugin doing the measuring, so I'd have a consolidated awake-drain rate instead of a single noisy before/after reading.
+The setup: a vendor koreader checkout (`master` @ `730285210`), one extra plugin installed ([AnnotationSync](https://github.com/dani84bs/AnnotationSync.koplugin)), and the built-in BatteryStat plugin doing the measuring, so I'd have a consolidated awake-drain rate instead of a single noisy before/after reading.
 
 ## Ruling out the obvious
 
@@ -54,3 +59,5 @@ On the clean install, I want to re-establish the Wi-Fi-*on* baseline first befor
 Fortunately, Matt Dinniman keeps cranking out Dungeon Crawler Carl books, so I'm not short on reading material for the long sessions this is going to take.
 
 More to come as I run those.
+
+[[kobo-libra-colour-battery-drain-part-2 | Read part 2]]
