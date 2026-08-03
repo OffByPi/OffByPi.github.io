@@ -52,4 +52,4 @@ Enabling the aforementioned setting `Disable Wi-Fi when inactive` will kill the 
 2. Update `AnnotationSync` to use those holy wrappers.
 3. Perform an experiment with `AnnotationSync` enabled.
 
-See you on part 3.
+See you on [[kobo-libra-colour-battery-drain-part-3 | part 3]] .
