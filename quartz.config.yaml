@@ -86,6 +86,9 @@ plugins:
   - source: ./plugins/canonical-url
     enabled: true
     order: 71
+  - source: ./plugins/noindex-tags
+    enabled: true
+    order: 72
   - source: github:quartz-community/latex
     enabled: true
     options:
