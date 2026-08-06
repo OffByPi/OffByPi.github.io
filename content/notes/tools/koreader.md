@@ -10,3 +10,13 @@ tags: [tools, ebook]
 
 - Enable system fonts
 - Disable partial rendering
+
+## Enable debug log
+
+- **Top Bar Menu** -> **Three Lines menu** (the leftmost one) -> **Help** -> **Report a bug**
+- **Enable verbose logging**
+- Restart KOReader
+
+### Where to find it?
+
+The debug logs can be found in file `crash.log` in the KOReader installation directory.

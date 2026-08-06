@@ -102,3 +102,4 @@ With my shining new protocol I designed a new experiment, composed of three cond
 
 If **C** instead lands close to or above **A** consistently across multiple repeats, that's a real finding worth digging into further.
 
+[[kobo-libra-colour-battery-drain-part-4 | Read part 4]]
