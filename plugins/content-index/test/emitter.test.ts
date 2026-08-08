@@ -48,7 +48,6 @@ interface PageOptions {
   links?: string[];
   unlisted?: boolean;
   encrypted?: boolean;
-  noindex?: boolean;
 }
 
 function createPage(opts: PageOptions): ProcessedContent {
@@ -84,7 +83,6 @@ function createPage(opts: PageOptions): ProcessedContent {
   };
   if (opts.unlisted) data.unlisted = true;
   if (opts.encrypted) data.encrypted = true;
-  if (opts.noindex) data.noindex = true;
   vfile.data = data;
   return [tree, vfile];
 }
@@ -158,11 +156,11 @@ describe("ContentIndex emitter", () => {
     expect(rss).not.toContain("Hidden Page");
   });
 
-  it("excludes whitespace-only pages (e.g. synthetic tag/folder pages) from RSS but keeps them in the sitemap", async () => {
+  it("excludes whitespace-only pages (e.g. synthetic folder pages) from RSS but keeps them in the sitemap", async () => {
     const emitter = ContentIndex();
     const content: ProcessedContent[] = [
       createPage({ slug: "notes/real-post", title: "Real Post", text: "hi" }),
-      createPage({ slug: "tags/dev", title: "dev", text: "  " }),
+      createPage({ slug: "folders/dev", title: "dev", text: "  " }),
     ];
     await emitter.emit(createCtx(outputDir), content, createResources());
 
@@ -172,7 +170,7 @@ describe("ContentIndex emitter", () => {
 
     const sitemap = await fs.readFile(path.join(outputDir, "sitemap.xml"), "utf8");
     expect(sitemap).toContain("notes/real-post");
-    expect(sitemap).toContain("tags/dev");
+    expect(sitemap).toContain("folders/dev");
   });
 
   it("does not emit richContent for encrypted pages even when rssFullHtml is true", async () => {
@@ -207,21 +205,24 @@ describe("ContentIndex emitter", () => {
     expect(index["encrypted-visible"]!.title).toBe("Locked");
   });
 
-  it("excludes pages flagged data.noindex from sitemap.xml but keeps them in contentIndex.json", async () => {
+  it("excludes tag page slugs from sitemap.xml but keeps them in contentIndex.json", async () => {
     const emitter = ContentIndex();
     const content: ProcessedContent[] = [
       createPage({ slug: "public", text: "hi" }),
-      createPage({ slug: "tags/dev", title: "dev", text: "hi", noindex: true }),
+      createPage({ slug: "tags/dev", title: "dev", text: "hi" }),
+      createPage({ slug: "tags", title: "Tags", text: "hi" }),
     ];
     await emitter.emit(createCtx(outputDir), content, createResources());
 
     const sitemap = await fs.readFile(path.join(outputDir, "sitemap.xml"), "utf8");
     expect(sitemap).toContain("public");
     expect(sitemap).not.toContain("tags/dev");
+    expect(sitemap).not.toContain(">https://example.com/tags<");
 
     const index = await readJson<Record<string, unknown>>(
       path.join(outputDir, "static", "contentIndex.json"),
     );
     expect(index["tags/dev"]).toBeDefined();
+    expect(index["tags"]).toBeDefined();
   });
 });

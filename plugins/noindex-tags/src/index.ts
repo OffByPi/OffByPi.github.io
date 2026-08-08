@@ -12,15 +12,6 @@ export const NoindexTags: QuartzTransformerPlugin = () => {
     textTransform(_ctx, src) {
       return src
     },
-    htmlPlugins() {
-      return [
-        () => (_tree: unknown, file: { data: Record<string, unknown> }) => {
-          if (isTagPage(file.data as QuartzPluginData)) {
-            file.data.noindex = true
-          }
-        },
-      ]
-    },
     externalResources() {
       return {
         additionalHead: [

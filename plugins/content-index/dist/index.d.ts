@@ -12,7 +12,6 @@ type ContentDetails = {
     richContent?: string;
     date?: Date;
     description?: string;
-    noindex?: boolean;
 };
 interface Options {
     enableSiteMap: boolean;

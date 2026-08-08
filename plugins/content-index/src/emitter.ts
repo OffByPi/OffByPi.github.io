@@ -27,7 +27,6 @@ export type ContentDetails = {
   richContent?: string;
   date?: Date;
   description?: string;
-  noindex?: boolean;
 };
 
 interface Options {
@@ -65,6 +64,10 @@ const write = async (args: {
   return pathToPage;
 };
 
+function isTagPage(slug: FullSlug): boolean {
+  return slug === "tags" || slug.startsWith("tags/");
+}
+
 function generateSiteMap(cfg: GlobalConfiguration, idx: ContentIndexMap): string {
   const base = cfg.baseUrl ?? "";
   const createURLEntry = (slug: SimpleSlug, content: ContentDetails): string => `<url>
@@ -72,7 +75,7 @@ function generateSiteMap(cfg: GlobalConfiguration, idx: ContentIndexMap): string
     ${content.date && `<lastmod>${content.date.toISOString()}</lastmod>`}
   </url>`;
   const urls = Array.from(idx)
-    .filter(([_, content]) => !content.noindex)
+    .filter(([slug]) => !isTagPage(slug))
     .map(([slug, content]) => createURLEntry(simplifySlug(slug) as SimpleSlug, content))
     .join("");
   return `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">${urls}</urlset>`;
@@ -158,7 +161,6 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
               : undefined,
           date: date,
           description: (data.description as string | undefined) ?? "",
-          noindex: data.noindex === true,
         });
       }
     }

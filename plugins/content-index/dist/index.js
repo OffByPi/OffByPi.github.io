@@ -2264,13 +2264,16 @@ var write = async (args) => {
   await fs.writeFile(pathToPage, args.content);
   return pathToPage;
 };
+function isTagPage(slug2) {
+  return slug2 === "tags" || slug2.startsWith("tags/");
+}
 function generateSiteMap(cfg, idx) {
   const base = cfg.baseUrl ?? "";
   const createURLEntry = (slug2, content) => `<url>
     <loc>https://${joinSegments(base, encodeURI(slug2))}</loc>
     ${content.date && `<lastmod>${content.date.toISOString()}</lastmod>`}
   </url>`;
-  const urls = Array.from(idx).filter(([_2, content]) => !content.noindex).map(([slug2, content]) => createURLEntry(simplifySlug(slug2), content)).join("");
+  const urls = Array.from(idx).filter(([slug2]) => !isTagPage(slug2)).map(([slug2, content]) => createURLEntry(simplifySlug(slug2), content)).join("");
   return `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">${urls}</urlset>`;
 }
 function generateRSSFeed(cfg, idx, options, limit) {
@@ -2330,8 +2333,7 @@ var ContentIndex = (opts) => {
           content: text2 ?? "",
           richContent: options.rssFullHtml && !isEncrypted ? escapeHTML(toHtml(tree, { allowDangerousHtml: true })) : void 0,
           date,
-          description: data.description ?? "",
-          noindex: data.noindex === true
+          description: data.description ?? ""
         });
       }
     }
