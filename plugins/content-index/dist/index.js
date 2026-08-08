@@ -2270,7 +2270,7 @@ function generateSiteMap(cfg, idx) {
     <loc>https://${joinSegments(base, encodeURI(slug2))}</loc>
     ${content.date && `<lastmod>${content.date.toISOString()}</lastmod>`}
   </url>`;
-  const urls = Array.from(idx).map(([slug2, content]) => createURLEntry(simplifySlug(slug2), content)).join("");
+  const urls = Array.from(idx).filter(([_2, content]) => !content.noindex).map(([slug2, content]) => createURLEntry(simplifySlug(slug2), content)).join("");
   return `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">${urls}</urlset>`;
 }
 function generateRSSFeed(cfg, idx, options, limit) {
@@ -2330,7 +2330,8 @@ var ContentIndex = (opts) => {
           content: text2 ?? "",
           richContent: options.rssFullHtml && !isEncrypted ? escapeHTML(toHtml(tree, { allowDangerousHtml: true })) : void 0,
           date,
-          description: data.description ?? ""
+          description: data.description ?? "",
+          noindex: data.noindex === true
         });
       }
     }

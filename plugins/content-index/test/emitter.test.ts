@@ -48,6 +48,7 @@ interface PageOptions {
   links?: string[];
   unlisted?: boolean;
   encrypted?: boolean;
+  noindex?: boolean;
 }
 
 function createPage(opts: PageOptions): ProcessedContent {
@@ -83,6 +84,7 @@ function createPage(opts: PageOptions): ProcessedContent {
   };
   if (opts.unlisted) data.unlisted = true;
   if (opts.encrypted) data.encrypted = true;
+  if (opts.noindex) data.noindex = true;
   vfile.data = data;
   return [tree, vfile];
 }
@@ -203,5 +205,23 @@ describe("ContentIndex emitter", () => {
     );
     expect(index["encrypted-visible"]).toBeDefined();
     expect(index["encrypted-visible"]!.title).toBe("Locked");
+  });
+
+  it("excludes pages flagged data.noindex from sitemap.xml but keeps them in contentIndex.json", async () => {
+    const emitter = ContentIndex();
+    const content: ProcessedContent[] = [
+      createPage({ slug: "public", text: "hi" }),
+      createPage({ slug: "tags/dev", title: "dev", text: "hi", noindex: true }),
+    ];
+    await emitter.emit(createCtx(outputDir), content, createResources());
+
+    const sitemap = await fs.readFile(path.join(outputDir, "sitemap.xml"), "utf8");
+    expect(sitemap).toContain("public");
+    expect(sitemap).not.toContain("tags/dev");
+
+    const index = await readJson<Record<string, unknown>>(
+      path.join(outputDir, "static", "contentIndex.json"),
+    );
+    expect(index["tags/dev"]).toBeDefined();
   });
 });

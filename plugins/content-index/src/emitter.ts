@@ -27,6 +27,7 @@ export type ContentDetails = {
   richContent?: string;
   date?: Date;
   description?: string;
+  noindex?: boolean;
 };
 
 interface Options {
@@ -71,6 +72,7 @@ function generateSiteMap(cfg: GlobalConfiguration, idx: ContentIndexMap): string
     ${content.date && `<lastmod>${content.date.toISOString()}</lastmod>`}
   </url>`;
   const urls = Array.from(idx)
+    .filter(([_, content]) => !content.noindex)
     .map(([slug, content]) => createURLEntry(simplifySlug(slug) as SimpleSlug, content))
     .join("");
   return `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">${urls}</urlset>`;
@@ -156,6 +158,7 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
               : undefined,
           date: date,
           description: (data.description as string | undefined) ?? "",
+          noindex: data.noindex === true,
         });
       }
     }
