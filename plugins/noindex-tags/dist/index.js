@@ -33,6 +33,15 @@ var NoindexTags = () => {
     textTransform(_ctx, src) {
       return src;
     },
+    htmlPlugins() {
+      return [
+        () => (_tree, file) => {
+          if (isTagPage(file.data)) {
+            file.data.noindex = true;
+          }
+        }
+      ];
+    },
     externalResources() {
       return {
         additionalHead: [
