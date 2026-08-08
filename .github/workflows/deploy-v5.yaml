@@ -44,7 +44,7 @@ jobs:
       - run: npm ci
 
       - name: Resolve local Quartz plugins
-        run: npx quartz plugin install --from-config canonical-url content-index noindex-tags site-logo
+        run: rm -rf .quartz/plugins/{canonical-url,content-index,noindex-tags,site-logo} && npx quartz plugin install --from-config canonical-url content-index noindex-tags site-logo
 
       - name: Install Quartz plugins
         run: npx quartz plugin install
