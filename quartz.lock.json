@@ -33,9 +33,9 @@
     },
     "canonical-url": {
       "source": "./plugins/canonical-url",
-      "resolved": "/Users/dani/code/OffByPi/plugins/canonical-url",
+      "resolved": "/workspaces/offbypi/plugins/canonical-url",
       "commit": "local",
-      "installedAt": "2026-07-30T07:04:14.924Z"
+      "installedAt": "2026-08-08T16:22:05.461Z"
     },
     "canvas-page": {
       "source": "github:quartz-community/canvas-page",
@@ -62,10 +62,10 @@
       "installedAt": "2026-07-14T13:37:46.056Z"
     },
     "content-index": {
-      "source": "github:quartz-community/content-index",
-      "resolved": "https://github.com/quartz-community/content-index.git",
-      "commit": "c3d4f5c85311712c3355cd71da46b28e2d8eba71",
-      "installedAt": "2026-07-14T13:37:44.578Z"
+      "source": "./plugins/content-index",
+      "resolved": "/workspaces/offbypi/plugins/content-index",
+      "commit": "local",
+      "installedAt": "2026-08-08T16:22:05.462Z"
     },
     "content-meta": {
       "source": "github:quartz-community/content-meta",
@@ -169,6 +169,12 @@
       "commit": "3dcfedcb5ae5e28b71248a72665ccb881e82c185",
       "installedAt": "2026-07-14T13:37:46.407Z"
     },
+    "noindex-tags": {
+      "source": "./plugins/noindex-tags",
+      "resolved": "/workspaces/offbypi/plugins/noindex-tags",
+      "commit": "local",
+      "installedAt": "2026-08-08T16:22:05.462Z"
+    },
     "note-properties": {
       "source": "github:quartz-community/note-properties",
       "resolved": "https://github.com/quartz-community/note-properties.git",
@@ -225,9 +231,9 @@
     },
     "site-logo": {
       "source": "./plugins/site-logo",
-      "resolved": "/Users/dani/code/OffByPi/plugins/site-logo",
+      "resolved": "/workspaces/offbypi/plugins/site-logo",
       "commit": "local",
-      "installedAt": "2026-07-30T07:04:14.925Z"
+      "installedAt": "2026-08-08T16:22:05.463Z"
     },
     "spacer": {
       "source": "github:quartz-community/spacer",
