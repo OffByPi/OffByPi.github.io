@@ -1,7 +1,7 @@
 {
   "name": "@offbypi/content-index",
   "version": "1.0.0",
-  "description": "Content index emitter plugin for Quartz. Generates sitemap, RSS feed, and content index JSON. Forked from @quartz-community/content-index to filter synthetic tag/folder pages out of the RSS feed.",
+  "description": "Content index emitter plugin for Quartz. Generates sitemap, RSS feed, and content index JSON. Forked from @quartz-community/content-index to filter synthetic tag/folder pages out of the RSS feed and tag pages out of the sitemap.",
   "type": "module",
   "license": "MIT",
   "private": true,
