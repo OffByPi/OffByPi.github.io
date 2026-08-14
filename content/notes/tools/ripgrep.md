@@ -46,6 +46,14 @@ rg <pattern1> ... | rg <pattern2>
 rg -P '(?=.*<pattern1>)(?=.*<pattern2>)' ...
 ```
 
+## Follow Symlinks
+
+By default `rg` doesn't follow symbolic links. `-L`/`--follow` makes it traverse them, which is handy when your search root contains symlinked dirs or files.
+
+```bash
+rg -L <pattern> ...
+```
+
 ## Cheatsheet
 
 ```bash
@@ -57,4 +65,5 @@ rg --sort modified <pattern> # sort results by modification time
 rg -e <pattern1> -e <pattern2> # OR: match either pattern
 rg <pattern1> | rg <pattern2> # AND: match both patterns
 rg -P '(?=.*<p1>)(?=.*<p2>)' # AND via PCRE2 lookaheads
+rg -L <pattern> # follow symlinks
 ```
