@@ -45,7 +45,7 @@ plugins:
   - source: github:quartz-community/created-modified-date
     enabled: true
     options:
-      defaultDateType: modified
+      defaultDateType: created
       priority:
         - frontmatter
         - git
@@ -183,7 +183,7 @@ plugins:
     layout:
       position: beforeBody
       priority: 10
-  - source: github:quartz-community/content-meta
+  - source: ./plugins/content-meta
     enabled: true
     layout:
       position: beforeBody

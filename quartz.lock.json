@@ -68,10 +68,10 @@
       "installedAt": "2026-08-08T16:22:05.462Z"
     },
     "content-meta": {
-      "source": "github:quartz-community/content-meta",
-      "resolved": "https://github.com/quartz-community/content-meta.git",
-      "commit": "dd6e94b5ca1cb195104a2b5e624a43ee6aa0a324",
-      "installedAt": "2026-07-14T13:37:45.889Z"
+      "source": "./plugins/content-meta",
+      "resolved": "/workspaces/offbypi/plugins/content-meta",
+      "commit": "local",
+      "installedAt": "2026-08-18T21:07:56.754Z"
     },
     "content-page": {
       "source": "github:quartz-community/content-page",
