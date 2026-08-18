@@ -1,6 +1,7 @@
 ---
 title: "nohup"
 tags: [tools, shell, cli, processes]
+created: 2026-08-07
 ---
 `nohup` runs a command immune to `SIGHUP`, so it keeps running after the shell that launched it exits — the standard way to survive a closed terminal or dropped SSH session.
 

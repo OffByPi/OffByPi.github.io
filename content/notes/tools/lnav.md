@@ -1,6 +1,7 @@
 ---
 title: "lnav"
 tags: [tools, cli, logs]
+created: 2026-07-21
 ---
 `lnav` is a terminal log file viewer that auto-detects common log formats, merges multiple files into a single timestamp-ordered view, and lets you query log data with SQL.
 

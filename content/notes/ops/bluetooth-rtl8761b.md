@@ -1,6 +1,8 @@
 ---
 title: "Fix Bluetooth on RTL8761B (Kernel 6+)"
 tags: [ops, linux, bluetooth, drivers]
+created: 2026-07-20
+modified: 2026-07-21
 ---
 Some Bluetooth 5.0 adapters using the RTL8761B chipset fail to load their driver on Ubuntu 20.04/22.04 (and other distros) — not because the firmware is missing, but because the kernel asks for the wrong filename.
 

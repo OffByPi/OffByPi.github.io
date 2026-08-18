@@ -1,6 +1,7 @@
 ---
 title: "Android Apps"
 tags: [tools, android]
+created: 2026-07-20
 ---
 Apps I install on every Android device, in order of how often I open them.
 

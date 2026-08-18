@@ -1,6 +1,7 @@
 ---
 title: "GStreamer Python Bindings"
 tags: [tools, multimedia, python, gstreamer]
+created: 2026-07-20
 ---
 `PyGObject` exposes GStreamer's C API to Python through GObject introspection. See [[gstreamer]] for the pipeline concepts and [[gstreamer-rtp]] for a full streaming example built on this setup.
 

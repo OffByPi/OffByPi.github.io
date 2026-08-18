@@ -1,6 +1,8 @@
 ---
 title: "Quartz Installation Instructions"
 tags: [dev, tools, markdown, web]
+created: 2026-07-14
+modified: 2026-07-20
 ---
 Instructions to install `quartz` locally.
 

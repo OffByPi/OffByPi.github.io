@@ -1,6 +1,7 @@
 ---
 title: "Wireless Drivers (Debian)"
 tags: [ops, linux, wifi, drivers]
+created: 2026-07-20
 ---
 Debian ships only free firmware by default, so most wireless chipsets need an extra package before the adapter works at all.
 

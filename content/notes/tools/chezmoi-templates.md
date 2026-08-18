@@ -1,6 +1,7 @@
 ---
 title: "Chezmoi Templates"
 tags: [tools, cli, dotfiles]
+created: 2026-07-18
 ---
 Chezmoi turns a managed dotfile into a Go-template file so its content can vary per machine, using data from `.chezmoi.toml.tmpl` or built-in variables like `.chezmoi.hostname`.
 

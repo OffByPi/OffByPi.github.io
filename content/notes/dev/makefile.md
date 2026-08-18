@@ -1,6 +1,7 @@
 ---
 title: "Makefile"
 tags: [dev, c, build-systems]
+created: 2026-07-20
 ---
 A `Makefile` declares build targets, their dependencies, and the recipe (shell commands) to produce them, rebuilding only what's stale based on file timestamps. Recipe lines must be indented with a **tab**, not spaces.
 

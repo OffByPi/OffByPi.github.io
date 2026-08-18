@@ -1,6 +1,8 @@
 ---
 title: "Podman"
 tags: [tools, cli, containers]
+created: 2026-07-18
+modified: 2026-07-30
 ---
 `podman` runs OCI containers without a background daemon, using rootless mode by default. It's a drop-in replacement for most `docker` commands. On macOS/Windows, see [[podman-machine]] for the VM that hosts the container runtime.
 

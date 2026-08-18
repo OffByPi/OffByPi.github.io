@@ -6,6 +6,7 @@ tags:
   - debugging
   - hardware
 created: 2026-08-02
+modified: 2026-08-03
 ---
 [[kobo-libra-colour-battery-drain-part-1 | Read part 1]]
 

@@ -1,6 +1,7 @@
 ---
 title: "Shell"
 tags: [tools, shell, cli]
+created: 2026-07-22
 ---
 A running collection of interactive shell tricks worth knowing.
 

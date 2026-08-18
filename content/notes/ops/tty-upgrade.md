@@ -1,6 +1,7 @@
 ---
 title: "Upgrading a Reverse Shell to a Full TTY"
 tags: [ops, security, pentesting, shell]
+created: 2026-07-21
 ---
 A raw reverse shell lacks job control, tab completion, arrow-key history, and proper signal handling (`Ctrl+C` kills the shell instead of the running command). Upgrading it to a fully interactive TTY fixes all of that.
 

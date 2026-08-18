@@ -1,6 +1,7 @@
 ---
 title: "GStreamer Map of Content"
 tags: [index, gstreamer]
+created: 2026-07-20
 ---
 Pipelines, Python bindings, RTP streaming, and timing/sync notes for GStreamer.
 

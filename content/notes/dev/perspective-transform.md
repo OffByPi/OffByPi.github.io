@@ -1,6 +1,7 @@
 ---
 title: "Perspective Transform (Bird's-Eye View)"
 tags: [dev, opencv, computer-vision, python]
+created: 2026-07-20
 ---
 `cv2.getPerspectiveTransform` computes the 3x3 homography matrix that maps 4 source points to 4 destination points, letting you warp a skewed view (e.g. a road seen at an angle) into a top-down "bird's-eye" view.
 

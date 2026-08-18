@@ -1,6 +1,7 @@
 ---
 title: "Dua"
 tags: [tools, cli, disk-usage]
+created: 2026-07-23
 ---
 `dua` (Disk Usage Analyzer) is a fast, parallelized disk space utility written in Rust, useful as a drop-in `du` replacement or, more importantly, through its interactive terminal UI.
 

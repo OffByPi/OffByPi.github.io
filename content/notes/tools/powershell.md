@@ -1,6 +1,7 @@
 ---
 title: "PowerShell"
 tags: [tools, shell, windows]
+created: 2026-07-20
 ---
 `powershell` is Windows' shell and scripting engine. Persistent config lives in `$PROFILE`.
 

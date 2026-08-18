@@ -1,6 +1,7 @@
 ---
 title: "Firefox Search Shortcuts"
 tags: [tools, browser, firefox, search]
+created: 2026-07-24
 ---
 Bind a keyword to any search URL so typing `<keyword> <query>` in Firefox's address bar searches that site directly.
 

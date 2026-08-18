@@ -1,6 +1,8 @@
 ---
 title: "Rsync File Synchronization"
 tags: [tools, cli, backup, networking]
+created: 2026-07-14
+modified: 2026-07-15
 ---
 `rsync` synchronizes files and directories, locally or over SSH, transferring only the differences between source and destination. See [[robocopy]] for the Windows equivalent.
 

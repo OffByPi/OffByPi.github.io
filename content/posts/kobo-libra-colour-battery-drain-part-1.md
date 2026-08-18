@@ -6,6 +6,7 @@ tags:
   - debugging
   - hardware
 created: 2026-08-01
+modified: 2026-08-02
 ---
 My Kobo Libra Colour was burning through ~10%/hour while I was actively reading — not suspended, just turning pages. That's high enough for an e-ink device that I went digging through the KOReader source instead of accepting it.
 

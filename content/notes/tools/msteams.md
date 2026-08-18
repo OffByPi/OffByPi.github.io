@@ -1,6 +1,7 @@
 ---
 title: "MS Teams"
 tags: [tools, chat]
+created: 2026-07-20
 ---
 `msteams` handles external links (e.g. meeting invites) by handing them off to the default browser's protocol handler.
 

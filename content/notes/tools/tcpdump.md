@@ -1,6 +1,7 @@
 ---
 title: "tcpdump"
 tags: [tools, cli, networking]
+created: 2026-08-07
 ---
 `tcpdump` captures and filters packets on a network interface using the same BPF syntax as `pcap`-based tools like Wireshark.
 

@@ -1,6 +1,7 @@
 ---
 title: "Android Default Apps"
 tags: [tools, android]
+created: 2026-07-25
 ---
 Clear an app's default-action preference so Android prompts you to choose again, instead of silently reopening a stale default (e.g. an old mail client after installing a new one).
 

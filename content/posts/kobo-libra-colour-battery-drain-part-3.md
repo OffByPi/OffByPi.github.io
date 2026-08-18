@@ -1,6 +1,7 @@
 ---
 title: Chasing a Battery Drain on my Kobo Libra Colour -  Part 3
 created: 2026-08-03
+modified: 2026-08-06
 tags:
   - ereader
   - koreader

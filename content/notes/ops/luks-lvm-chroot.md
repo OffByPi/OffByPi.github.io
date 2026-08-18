@@ -1,6 +1,7 @@
 ---
 title: "Chroot into a LUKS+LVM Encrypted System"
 tags: [ops, linux, luks, lvm, chroot]
+created: 2026-07-20
 ---
 Repairing a Linux install (broken bootloader, kernel, fstab) that sits on a LUKS-encrypted LVM volume requires unlocking and activating both layers before you can mount it and `chroot` in.
 

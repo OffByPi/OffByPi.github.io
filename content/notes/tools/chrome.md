@@ -1,6 +1,8 @@
 ---
 title: "Chrome"
 tags: [tools, browser]
+created: 2026-07-20
+modified: 2026-08-04
 ---
 `chrome` is Google's browser. Notes below cover privacy/security tweaks not obvious from the settings UI.
 

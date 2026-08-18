@@ -1,15 +1,26 @@
 ---
 title: "Ripgrep"
 tags: [tools, cli, search]
+created: 2026-07-21
+modified: 2026-08-18
 ---
 `rg` is a line-oriented search tool that recursively searches the current directory for a regex pattern, respecting `.gitignore` by default and outperforming `grep`/`ack`/`ag` on large trees.
 
 ## Include Ignored Files
 
-By default `rg` skips files matched by `.gitignore`, `.ignore`, and hidden files. `--no-ignore` disables that filtering.
+By default `rg` skips files matched by `.gitignore` and `.ignore`. `--no-ignore` disables that filtering.
 
 ```bash
 rg --no-ignore ...
+```
+
+## Include Hidden Files
+
+`rg` also skips dotfiles and dotdirs by default. `--hidden`/`-.` includes them; combine with `--no-ignore` to search everything.
+
+```bash
+rg --hidden ...
+rg --hidden --no-ignore ...
 ```
 
 ## Search Only Files of a Certain Type
@@ -58,7 +69,8 @@ rg -L <pattern> ...
 
 ```bash
 rg <pattern> # basic recursive search
-rg --no-ignore <pattern> # include gitignored/hidden files
+rg --no-ignore <pattern> # include gitignored files
+rg --hidden <pattern> # include hidden files/dirs
 rg -t <type> <pattern> # restrict to a file type
 rg --type-list # list available -t types
 rg --sort modified <pattern> # sort results by modification time

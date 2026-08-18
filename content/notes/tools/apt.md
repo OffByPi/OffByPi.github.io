@@ -1,6 +1,7 @@
 ---
 title: "APT"
 tags: [tools, cli, ubuntu, debian]
+created: 2026-08-07
 ---
 `apt` is Debian/Ubuntu's package manager, wrapping `dpkg` with dependency resolution and repository handling.
 

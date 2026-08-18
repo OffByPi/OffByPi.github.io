@@ -1,6 +1,7 @@
 ---
 title: "GStreamer PTS and Synchronization"
 tags: [tools, multimedia, gstreamer]
+created: 2026-07-20
 ---
 A sink's `sync` property controls whether buffers are pushed out at real-time pace (following their timestamps) or as fast as possible — it affects running time, not the `PTS` values themselves. See [[gstreamer]] for pipeline basics.
 

@@ -1,6 +1,8 @@
 ---
 title: "Inkscape"
 tags: [tools, inkscape, svg]
+created: 2026-07-20
+modified: 2026-07-21
 ---
 Vector graphics editor. Notes below cover converting a raster PNG into an editable SVG path.
 

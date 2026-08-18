@@ -1,6 +1,7 @@
 ---
 title: "ZMQ"
 tags: [dev, zmq, networking, python]
+created: 2026-07-21
 ---
 ZMQ is a high-performance, asynchronous messaging library that works without any broker. At its core is the socket, an object capable of distributing atomic messages and connecting *N to N*.
 

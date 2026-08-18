@@ -1,6 +1,8 @@
 ---
 title: "OpenCV in Python"
 tags: [dev, opencv, computer-vision, python]
+created: 2026-07-21
+modified: 2026-07-23
 ---
 OpenCV (`cv2`) covers video/image I/O, drawing primitives, and interactive windows for computer-vision work in Python.
 

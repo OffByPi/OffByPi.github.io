@@ -1,6 +1,7 @@
 ---
 title: "Devcontainer GUI Apps"
 tags: [tools, dev, containers, vscode, vnc]
+created: 2026-07-27
 ---
 Run GUI apps inside a [[devcontainer-json|devcontainer]] via a lightweight Fluxbox desktop, reachable through noVNC in a browser or any VNC client. The `desktop-lite` feature handles this without a custom Dockerfile.
 

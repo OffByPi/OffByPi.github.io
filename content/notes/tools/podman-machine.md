@@ -1,6 +1,8 @@
 ---
 title: "Podman Machine Management"
 tags: [tools, cli, containers]
+created: 2026-07-18
+modified: 2026-07-20
 ---
 On macOS and Windows, [[podman]] runs containers inside a lightweight Linux VM managed by `podman machine`, since the container runtime needs a Linux kernel. This layer doesn't exist on Linux, where Podman talks to the kernel directly.
 

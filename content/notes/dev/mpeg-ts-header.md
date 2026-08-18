@@ -1,6 +1,8 @@
 ---
 title: "MPEG-TS Packet Header"
 tags: [dev, mpeg-ts, video, protocols]
+created: 2026-07-20
+modified: 2026-07-21
 ---
 An MPEG-TS packet is 188 bytes: a 4-byte header, optionally followed by an adaptation field, then payload.
 

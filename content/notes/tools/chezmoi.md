@@ -1,6 +1,7 @@
 ---
 title: "Chezmoi"
 tags: [tools, cli, dotfiles]
+created: 2026-07-20
 ---
 `chezmoi` manages dotfiles across machines from a single git repository, applying per-machine differences through templating. See [[chezmoi-templates]] for the templating syntax.
 

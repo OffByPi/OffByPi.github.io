@@ -1,6 +1,8 @@
 ---
 title: "devcontainer.json"
 tags: [tools, dev, containers, vscode]
+created: 2026-07-18
+modified: 2026-08-18
 ---
 `devcontainer.json` is the config file for the [devcontainers spec](https://containers.dev/), describing a reproducible dev environment as code. Tools that read it — VS Code's Dev Containers extension, the `devcontainer` CLI, [[devpod]] — all build the same environment from the same file, regardless of provider.
 
@@ -72,6 +74,14 @@ For apt packages specifically, prefer the [`apt-packages`](https://github.com/ro
 * `postStartCommand` — lifecycle hook: shell command run every time the container starts (create or restart).
 * `customizations.vscode.extensions` — list of extension IDs to auto-install in the container.
 * `remoteUser` — user the tooling connects as inside the container (defaults to the image's default user).
+* `workspaceFolder` — path inside the container where the repo is mounted and where the tooling opens/`cd`s to on attach (defaults to `/workspaces/<repo-name>`).
+* `workspaceMount` — overrides the automatic bind mount of the repo; pair with `workspaceFolder` to open a subdirectory instead of the repo root. A comma-separated mount string:
+  * `source` — path on the host to mount, typically `${localWorkspaceFolder}` (the repo root on the host).
+  * `target` — path inside the container where `source` gets mounted.
+  * `type` — mount type:
+    * `bind` — direct host-path mount; contents live on the host filesystem.
+    * `volume` — a Docker-managed named volume; contents live inside Docker, not directly on the host (faster on macOS/Windows, no host filesystem clutter).
+  * `consistency` — host/container filesystem sync behavior (`cached`, `delegated`, or `consistent`); `cached` favors container read performance.
 * `mounts` — extra bind mounts beyond the automatic repo mount (e.g. SSH keys, Docker socket).
 
 > To reach a service running on the host from inside the devcontainer, use `host.containers.internal`/`host.docker.internal` instead of `localhost` — see [[podman#Reaching the Host Machine from a Container]].
@@ -96,8 +106,21 @@ For apt packages specifically, prefer the [`apt-packages`](https://github.com/ro
 }
 ```
 
+## Opening a Subdirectory as the Workspace
+
+When the actual project lives in a subfolder of the repo (e.g. a plugin nested inside a monorepo), override `workspaceMount` to bind-mount the whole repo, then point `workspaceFolder` at the subfolder:
+
+```json
+{
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/<repo-name>,type=bind,consistency=cached",
+  "workspaceFolder": "/workspaces/<repo-name>/<subdir-name>"
+}
+```
+
 ## Useful features
 
 - ghcr.io/jsburckhardt/devcontainer-features/lazygit:1
-- ghcr.io/devcontainers-extra/features/uv:1
 - ghcr.io/devcontainers/features/desktop-lite:1 — see [[devcontainer-gui-apps]] for GUI apps over VNC/noVNC
+- ghcr.io/devcontainers/features/github-cli:1
+- ghcr.io/devcontainers-extra/features/uv:1
+- ghcr.io/devcontainers/features/node:2

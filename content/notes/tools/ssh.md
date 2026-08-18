@@ -1,6 +1,8 @@
 ---
 title: "SSH"
 tags: [tools, cli, ssh]
+created: 2026-07-18
+modified: 2026-07-30
 ---
 `ssh` opens an encrypted shell to a remote host, and can also tunnel arbitrary TCP traffic between hosts.
 

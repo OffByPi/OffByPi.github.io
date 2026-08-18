@@ -1,6 +1,7 @@
 ---
 title: "GStreamer"
 tags: [tools, multimedia, video, gstreamer]
+created: 2026-07-20
 ---
 `gstreamer` builds media pipelines out of chained elements (sources, filters, sinks) connected by pads, and can be driven from the CLI (`gst-launch-1.0`) or via language bindings. See [[gstreamer-python]] for the Python API, [[gstreamer-rtp]] for streaming over RTP, and [[gstreamer-pts]] for timestamp/sync behavior.
 

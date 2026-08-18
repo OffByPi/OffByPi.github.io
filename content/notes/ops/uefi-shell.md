@@ -1,6 +1,8 @@
 ---
 title: "UEFI Interactive Shell"
 tags: [ops, uefi, bios, boot]
+created: 2026-07-20
+modified: 2026-07-21
 ---
 The UEFI shell is a pre-boot command-line environment for inspecting and repairing boot configuration directly, useful when an OS's bootloader is broken or missing.
 

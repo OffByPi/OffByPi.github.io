@@ -1,6 +1,7 @@
 ---
 title: "Pacman"
 tags: [tools, cli, arch-linux]
+created: 2026-07-20
 ---
 `pacman` is Arch Linux's package manager, configured via `/etc/pacman.conf` and `/etc/pacman.d/mirrorlist`.
 

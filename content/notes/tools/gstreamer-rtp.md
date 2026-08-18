@@ -1,6 +1,7 @@
 ---
 title: "GStreamer over RTP"
 tags: [tools, multimedia, rtp, rtsp, gstreamer]
+created: 2026-07-20
 ---
 Streaming a GStreamer pipeline over RTP means payloading an encoded (or raw) elementary stream into RTP packets on the sender, and depayloading + decoding on the receiver. See [[gstreamer]] for pipeline basics and [[gstreamer-python]] for driving pipelines from Python.
 

@@ -1,6 +1,8 @@
 ---
 title: "Bitwarden SSH Agent"
 tags: [tools, ssh, security, bitwarden]
+created: 2026-07-18
+modified: 2026-07-21
 ---
 Bitwarden's desktop app can act as an [[ssh]] agent, storing your private keys in the encrypted vault instead of `~/.ssh/`. Requires Bitwarden release 2025.1.2 or newer.
 

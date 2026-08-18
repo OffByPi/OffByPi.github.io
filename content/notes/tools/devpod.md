@@ -1,6 +1,8 @@
 ---
 title: "Devpod"
 tags: [tools, dev, containers, vscode]
+created: 2026-07-15
+modified: 2026-07-30
 ---
 `devpod` is an open-source client for [devcontainers](https://containers.dev/), spinning up a reproducible dev environment from a repo's [[devcontainer-json|devcontainer.json]] on any provider (Docker, Podman, Kubernetes, SSH, cloud VMs).
 

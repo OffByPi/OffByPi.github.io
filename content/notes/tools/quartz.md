@@ -1,6 +1,8 @@
 ---
 title: "Quartz"
 tags: [dev, tools, markdown, web]
+created: 2026-07-19
+modified: 2026-07-21
 ---
 Cheatsheet for configuring and extending `quartz` beyond the defaults. See [[quartz-installation]] for setup.
 

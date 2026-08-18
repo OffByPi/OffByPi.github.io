@@ -1,6 +1,7 @@
 ---
 title: "Python Datetime Handling"
 tags: [dev, python, datetime, testing]
+created: 2026-07-21
 ---
 The `datetime` module converts between Unix timestamps, timezone-aware objects, and string formats.
 

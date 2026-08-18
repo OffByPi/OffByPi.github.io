@@ -1,6 +1,8 @@
 ---
 title: "KOReader"
 tags: [tools, ebook]
+created: 2026-07-20
+modified: 2026-08-06
 ---
 `koreader` is a document viewer for e-ink devices, also packaged for desktop.
 

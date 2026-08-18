@@ -1,6 +1,7 @@
 ---
 title: "launchctl"
 tags: [tools, macos, launchd, cli]
+created: 2026-07-20
 ---
 `launchctl` is the CLI for `launchd`, macOS's init system and service manager — it starts/stops daemons and agents, and manages the environment `launchd` hands to every process it spawns.
 

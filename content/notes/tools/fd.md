@@ -1,6 +1,7 @@
 ---
 title: "fd"
 tags: [tools, cli, filesystem]
+created: 2026-08-01
 ---
 `fd` is a fast, user-friendly alternative to `find`, written in Rust. It ignores hidden files and `.gitignore` entries by default, uses colorized output, and matches regex or glob patterns against filenames without the `find`-style `-name` boilerplate.
 

@@ -1,6 +1,7 @@
 ---
 title: "lsof"
 tags: [tools, cli, networking, debugging]
+created: 2026-07-24
 ---
 `lsof` lists open files — and on Unix, sockets and network connections count as files too, making it the go-to tool for finding which process holds a port or a file handle open.
 

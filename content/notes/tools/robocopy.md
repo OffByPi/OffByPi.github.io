@@ -1,6 +1,7 @@
 ---
 title: "Robocopy File Synchronization"
 tags: [tools, cli, backup, windows]
+created: 2026-07-15
 ---
 `robocopy` (Robust File Copy) mirrors files and directory trees on Windows, with restartable copying and detailed retry logic for flaky connections. See [[rsync]] for the Unix equivalent.
 

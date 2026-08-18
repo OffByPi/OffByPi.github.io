@@ -1,6 +1,7 @@
 ---
 title: "Loguru"
 tags: [dev, python, logging]
+created: 2026-07-23
 ---
 [loguru](https://github.com/Delgan/loguru) is a drop-in replacement for Python's `logging` module with sane defaults: no boilerplate handler/formatter setup, colorized output, structured `bind()` context, and built-in file rotation.
 

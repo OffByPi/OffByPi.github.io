@@ -1,6 +1,7 @@
 ---
 title: "Markdown (Obsidian)"
 tags: [tools, obsidian, markdown]
+created: 2026-08-02
 ---
 Notes on Obsidian-flavored markdown syntax I keep forgetting.
 

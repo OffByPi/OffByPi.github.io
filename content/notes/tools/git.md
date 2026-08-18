@@ -1,6 +1,8 @@
 ---
 title: "Git"
 tags: [tools, cli, vcs]
+created: 2026-07-14
+modified: 2026-08-18
 ---
 `git` is a distributed version control system for tracking changes in source code during software development.
 
@@ -41,6 +43,14 @@ Point `origin` at the correct `Host` alias for the account that should own this 
 ## Visualizing History as a Graph
 
 `git log --graph` draws the commit DAG in ASCII, useful for seeing merges and diverging branches at a glance.
+
+## Finding a Deleted File That Was Once Tracked
+
+`git log --diff-filter=D --summary -- <path>` finds the commit that deleted a given path, even if the file no longer exists in the working tree or `HEAD`. Once you have that commit, checking out the file's state from its parent (`<commit>^`) restores it.
+
+If you don't know the exact path, `git log --diff-filter=D --summary --all` scans every branch and lists every deletion, so you can grep the output for the filename.
+
+`^` is the parent-commit suffix: `<commit>^` means "the parent of `<commit>`" — i.e. the tree right before that commit's changes were applied. Since the file was deleted *in* the deletion commit, its last-known content lives in that commit's parent, not in the commit itself. Stack `^` to go further back (`<commit>^^` is the grandparent), or use `~<n>` (`<commit>~2`) as shorthand for the same thing along the first-parent line.
 
 ## Cheatsheet
 
@@ -141,4 +151,17 @@ git diff <branch-a>..<branch-b>
 
 ```bash
 git log --all --decorate --oneline --graph
+```
+
+### Find and Restore a Deleted File
+
+```bash
+# Find the commit that deleted a known path
+git log --diff-filter=D --summary -- <path>
+
+# Search every branch for any deletion matching a filename
+git log --diff-filter=D --summary --all | grep <filename>
+
+# Restore the file as it was right before deletion
+git checkout <commit>^ -- <path>
 ```

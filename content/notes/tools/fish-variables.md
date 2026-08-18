@@ -1,6 +1,8 @@
 ---
 title: "Fish Shell Variables"
 tags: [tools, cli, shell, fish]
+created: 2026-07-18
+modified: 2026-07-22
 ---
 `fish` uses `set` for all variable manipulation — no `export`, no `$()` word-splitting surprises, and variables are lists by default.
 

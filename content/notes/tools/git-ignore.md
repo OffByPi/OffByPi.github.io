@@ -1,6 +1,8 @@
 ---
 title: "Git Ignore Mechanisms"
 tags: [tools, cli, git]
+created: 2026-07-14
+modified: 2026-07-21
 ---
 Git offers several ways to exclude files from being tracked, differing in *scope* (repo-wide vs personal vs global) and *whether they're versioned*.
 

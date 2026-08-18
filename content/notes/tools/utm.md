@@ -1,6 +1,8 @@
 ---
 title: "UTM"
 tags: [tools, virtualization, macos]
+created: 2026-07-20
+modified: 2026-07-21
 ---
 `UTM` is a QEMU-based virtualizer for macOS (Apple Silicon and Intel). These notes cover setting up guest tools and file sharing on a Debian-based Linux guest.
 

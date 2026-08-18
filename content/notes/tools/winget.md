@@ -1,6 +1,7 @@
 ---
 title: "winget"
 tags: [tools, cli, windows]
+created: 2026-07-20
 ---
 `winget` is Windows' built-in package manager.
 

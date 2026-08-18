@@ -1,6 +1,7 @@
 ---
 title: "Bash Scripting Defaults"
 tags: [dev, bash, cli, shell]
+created: 2026-07-19
 ---
 A running collection of small Bash idioms worth reaching for by default, not a full guide.
 

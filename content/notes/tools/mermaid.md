@@ -1,6 +1,7 @@
 ---
 title: "Mermaid"
 tags: [tools, mermaid, diagrams, markdown]
+created: 2026-07-20
 ---
 Text-based diagramming tool rendered from fenced code blocks tagged `mermaid`. Supported natively by Quartz, GitHub, and Obsidian's preview.
 

@@ -1,6 +1,7 @@
 ---
 title: "Linux Privilege Escalation"
 tags: [ops, security, pentesting, linux]
+created: 2026-07-21
 ---
 Once you have a shell on a target, enumerate the system for misconfigurations before trying anything manual. [LinPEAS](https://github.com/carlospolop/PEASS-ng) and [pspy64](https://github.com/DominicBreuker/pspy) cover most of the ground automatically.
 

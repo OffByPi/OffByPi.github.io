@@ -1,6 +1,8 @@
 ---
 title: "Pytest"
 tags: [dev, python, testing, pytest]
+created: 2026-07-21
+modified: 2026-07-22
 ---
 Pytest is Python's de-facto testing framework, built around plain `assert` statements, fixtures for setup/teardown, and a plugin ecosystem (coverage, freezing time, mocking).
 

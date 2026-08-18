@@ -1,6 +1,8 @@
 ---
 title: "Rosetta"
 tags: [tools, macos, rosetta]
+created: 2026-07-20
+modified: 2026-07-21
 ---
 Rosetta 2 lets Apple Silicon Macs run x86_64 binaries by translating them at launch. Universal binaries bundle both architectures; other tools need to be told explicitly to target x86_64 so Rosetta can run the result.
 

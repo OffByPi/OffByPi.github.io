@@ -1,6 +1,7 @@
 ---
 title: "Cargo"
 tags: [dev, rust, cargo, cli]
+created: 2026-07-21
 ---
 Cargo is Rust's build tool and package manager, wrapping `rustc` for the common build/test/publish workflow.
 
