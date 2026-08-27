@@ -56,7 +56,7 @@ At the end of this phase we finally end up with a plan document which will map o
 
 Since the task description encompasses the tests as well, the implementing agents will automatically have their guardrails preventing them to stray from the clear path. But at the end we'll need nevertheless to deeply review what's produced.
 
-**## Slow Is Smooth, Smooth Is Fast**
+## Slow Is Smooth, Smooth Is Fast
 
 At first glance, this entire workflow might look counterintuitive. You are spending a lot of time and burning thousands of tokens on back-and-forth conversations, alignment passes, and detailed specifications before asking the model to write a single line of real code.
 
