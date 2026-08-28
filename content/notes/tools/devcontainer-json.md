@@ -2,7 +2,7 @@
 title: "devcontainer.json"
 tags: [tools, dev, containers, vscode]
 created: 2026-07-18
-modified: 2026-08-18
+modified: 2026-08-28
 ---
 `devcontainer.json` is the config file for the [devcontainers spec](https://containers.dev/), describing a reproducible dev environment as code. Tools that read it — VS Code's Dev Containers extension, the `devcontainer` CLI, [[devpod]] — all build the same environment from the same file, regardless of provider.
 
