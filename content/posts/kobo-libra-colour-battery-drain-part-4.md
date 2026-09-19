@@ -95,3 +95,5 @@ I run the experiment multiple times to have consistent readings, but it never tr
 Given the current situation, I believe the next solid point should be to find who's responsible for those network transmissions and If I won't be able to rule it out, to tweak a little the threshold in order to let the mechanism kick in.
 
 See you soon.
+
+[[kobo-libra-colour-battery-drain-part-5 | Read part 5]]

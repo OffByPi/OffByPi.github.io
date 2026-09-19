@@ -2,7 +2,7 @@
 title: "Devpod"
 tags: [tools, dev, containers, vscode]
 created: 2026-07-15
-modified: 2026-07-30
+modified: 2026-09-18
 ---
 `devpod` is an open-source client for [devcontainers](https://containers.dev/), spinning up a reproducible dev environment from a repo's [[devcontainer-json|devcontainer.json]] on any provider (Docker, Podman, Kubernetes, SSH, cloud VMs).
 
@@ -42,7 +42,13 @@ Install the extension (VSCodium build shown in the Cheatsheet; same ID works for
 
 ## Dotfiles
 
-Set a dotfiles URL context-wide so every new workspace, on any provider, is created with it — no need to pass `--dotfiles` per `devpod up` call. Devpod clones the repo into the workspace and looks for an install script (`install.sh`, `install`, `bootstrap.sh`, `bootstrap`, `script/bootstrap`, `setup.sh`, `setup`, `script/setup`); if none is found, it falls back to symlinking every hidden file in the repo root straight into `$HOME`, `/etc/skel`-style — no script required for a simple dotfiles repo.
+Set a dotfiles URL context-wide so every new workspace, on any provider, is created with it — no need to pass `--dotfiles` per `devpod up` call:
+
+```bash
+devpod context set-options -o DOTFILES_URL=<dotfiles-repo-url>
+```
+
+Devpod clones the repo into the workspace and looks for an install script (`install.sh`, `install`, `bootstrap.sh`, `bootstrap`, `script/bootstrap`, `setup.sh`, `setup`, `script/setup`); if none is found, it falls back to symlinking every hidden file in the repo root straight into `$HOME`, `/etc/skel`-style — no script required for a simple dotfiles repo.
 
 Override per-workspace with `devpod up <repo> --dotfiles <url> --dotfiles-script <path>`.
 
