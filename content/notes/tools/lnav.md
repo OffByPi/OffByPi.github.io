@@ -2,6 +2,7 @@
 title: "lnav"
 tags: [tools, cli, logs]
 created: 2026-07-21
+modified: 2026-09-24
 ---
 `lnav` is a terminal log file viewer that auto-detects common log formats, merges multiple files into a single timestamp-ordered view, and lets you query log data with SQL.
 
@@ -49,6 +50,13 @@ w / W      # next / previous warning
 G          # jump to bottom, resume auto-scroll while tailing
 h / l      # (at start of line) cycle filename: hidden -> short -> full path, and back
 q          # quit
+```
+
+### Jump to a Time
+
+```keymap
+:goto <time>        # jump to an absolute time, e.g. :goto 2026-09-24 10:00
+:goto -30m          # jump relative to the current position
 ```
 
 ### Query with SQL
