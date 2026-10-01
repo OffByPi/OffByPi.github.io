@@ -89,6 +89,12 @@ plugins:
   - source: ./plugins/noindex-tags
     enabled: true
     order: 72
+  - source: ./plugins/rel-me
+    enabled: true
+    options:
+      links:
+        - https://mastodon.social/@dani84bs
+    order: 73
   - source: github:quartz-community/latex
     enabled: true
     options:

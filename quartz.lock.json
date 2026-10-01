@@ -211,6 +211,12 @@
       "commit": "3c3d104335e2fc5ff62371ead157667adb79b046",
       "installedAt": "2026-07-14T13:37:46.091Z"
     },
+    "rel-me": {
+      "source": "./plugins/rel-me",
+      "resolved": "/workspaces/offbypi/plugins/rel-me",
+      "commit": "local",
+      "installedAt": "2026-10-01T15:57:30.637Z"
+    },
     "remove-draft": {
       "source": "github:quartz-community/remove-draft",
       "resolved": "https://github.com/quartz-community/remove-draft.git",
