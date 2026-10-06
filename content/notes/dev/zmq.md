@@ -2,6 +2,7 @@
 title: "ZMQ"
 tags: [dev, zmq, networking, python]
 created: 2026-07-21
+modified: 2026-10-06
 ---
 ZMQ is a high-performance, asynchronous messaging library that works without any broker. At its core is the socket, an object capable of distributing atomic messages and connecting *N to N*.
 
@@ -270,9 +271,12 @@ PUSH -> PULL    # pipeline, distributes/collects across workers
 ```
 
 ### Setup
+For OS-chosen ports, see [[ephemeral-ports]].
+
 ```python
 context = zmq.Context() # one per process
 socket = context.socket(zmq.REQ) # or REP, PUB, SUB, PUSH, PULL
 socket.bind("tcp://*:5555")   # or
 socket.connect("tcp://localhost:5555")
+socket.bind_to_random_port("tcp://127.0.0.1") # OS-chosen port
 ```

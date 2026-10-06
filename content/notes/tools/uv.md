@@ -27,7 +27,15 @@ uv python pin <version>       # pin project to a version, writes .python-version
 
 ## Isolated Runs
 
-`uv run --isolated` runs a command in a temporary, throwaway environment built only from the given dependencies — it ignores the project's `.venv` and doesn't touch `uv.lock`. Use it to sanity-check a script against specific package versions without polluting the project environment, or to run a one-off script that needs packages the project itself doesn't depend on.
+`uv run --isolated` runs a command in a temporary, throwaway environment built only from the given dependencies — it ignores the project's `.venv` and doesn't touch `uv.lock`. Use it to sanity-check a script against specific package versions without polluting the project environment, or to run a one-off script that needs packages the project itself doesn't depend on. The environment is rebuilt from scratch on every invocation — there's no flag to make `--isolated` persist and reuse that same environment.
+
+If the goal is a persistent side environment that just stays separate from `.venv` (rather than a disposable one), use `UV_PROJECT_ENVIRONMENT` instead:
+
+```bash
+UV_PROJECT_ENVIRONMENT=.venv-scratch uv run <script.py>
+```
+
+This points uv at an alternate venv path for the project. It's created on first run and synced incrementally on later runs, same as `.venv` normally would be — `.venv` itself is never touched.
 
 ## Cheatsheet
 
@@ -40,6 +48,7 @@ uv sync                             # install from lockfile
 uv lock                             # regenerate uv.lock without installing
 uv run <script.py>                  # run in project venv
 uv run --isolated <script.py>       # run in a disposable, isolated venv
+UV_PROJECT_ENVIRONMENT=<path> uv run <script.py> # use a persistent venv instead of .venv
 uv run --with <package> <script.py> # run with an extra ad-hoc dependency
 uv python install <version>         # install a Python version
 uv python pin <version>             # pin project Python version
