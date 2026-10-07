@@ -2,6 +2,7 @@
 title: "Chezmoi"
 tags: [tools, cli, dotfiles]
 created: 2026-07-20
+modified: 2026-10-07
 ---
 `chezmoi` manages dotfiles across machines from a single git repository, applying per-machine differences through templating. See [[chezmoi-templates]] for the templating syntax.
 
@@ -18,6 +19,20 @@ sh -c "$(curl -fsLS https://get.chezmoi.io/lb)"
 ```bash
 chezmoi init git@github.com/<user>/<repo>.git
 ```
+
+### Apply a single file
+
+`init` only clones the repo; nothing touches `$HOME` until you apply. Skip `--apply` and pass the target to `apply`:
+
+```bash
+chezmoi init git@github.com/<user>/<repo>.git
+chezmoi diff <target>
+chezmoi apply <target>
+```
+
+A bare `chezmoi apply` applies everything, so keep passing the target. Other files' `run_*` scripts don't run, but `init` still renders `.chezmoi.toml.tmpl` and may prompt for values.
+
+To keep files from ever being applied on a machine, list them in `.chezmoiignore` (templates allowed). To read a file without applying it, use `chezmoi cat <target>`.
 
 ## Add a File
 
