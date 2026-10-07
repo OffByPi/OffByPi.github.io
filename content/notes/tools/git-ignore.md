@@ -1,8 +1,11 @@
 ---
-title: "Git Ignore Mechanisms"
-tags: [tools, cli, git]
+title: "Git Ignore: .gitignore, Directories, Exclude, Global"
+tags:
+  - tools
+  - cli
+  - git
 created: 2026-07-14
-modified: 2026-07-21
+modified: 2026-10-07
 ---
 Git offers several ways to exclude files from being tracked, differing in *scope* (repo-wide vs personal vs global) and *whether they're versioned*.
 
@@ -28,7 +31,7 @@ The standard, versioned way to exclude files. Committed to the repo so every clo
 
 ## `.git/info/exclude`
 
-Functions exactly like a `.gitignore` at the repo root, but lives inside `.git/` so it is **never committed or shared**.
+Functions exactly like a `.gitignore` at the repo root, but lives inside `.git/` so it is **never committed or shared**. Use it when you want to exclude a file or directory only on your machine, without touching the shared `.gitignore`.
 
 * Ideal for personal, repo-specific ignores (e.g., your own scratch files, editor workspace files you don't want to force on teammates).
 * Same pattern syntax as `.gitignore`.
@@ -40,10 +43,10 @@ $EDITOR .git/info/exclude
 
 ## Precedence & Checking
 
-Git applies ignore rules in this order, with more specific (deeper) `.gitignore` files taking precedence over broader ones, and negation (`!pattern`) able to override an earlier match:
+When several sources match the same path, the one with higher priority wins, and negation (`!pattern`) can re-include a file ignored by a lower-priority source. From highest to lowest priority:
 
-1. `.git/info/exclude`
-2. `.gitignore` files, read from the repo root down to the file's directory
+1. `.gitignore` files, with deeper directories taking precedence over parent ones
+2. `.git/info/exclude`
 3. Global excludes file (`core.excludesFile`)
 
 ```bash
@@ -67,7 +70,11 @@ Adding a pattern to any ignore file does **not** untrack files Git already knows
 ```bash
 # Stop tracking a file but keep it on disk, then let .gitignore take over
 git rm --cached <file>
-git commit -m "chore: stop tracking <file>"
+
+# Same for a whole directory
+git rm -r --cached <directory>
+
+git commit -m "chore: stop tracking <path>"
 ```
 
 ## Cheatsheet
@@ -76,8 +83,11 @@ git commit -m "chore: stop tracking <file>"
 Append a trailing slash to match a directory only (not a file of the same name):
 
 ```gitignore
-node_modules/    # matches a "node_modules" directory at any depth
-/build/          # matches only the "build" directory at repo root (anchored)
+# matches a "node_modules" directory at any depth
+node_modules/
+
+# matches only the "build" directory at repo root (anchored)
+/build/
 ```
 
 Without the trailing slash, the pattern matches a file *or* a directory of that name.
@@ -117,8 +127,11 @@ echo "*.swp" >> ~/.gitignore_global
 
 ```gitignore
 # In ~/.gitignore_global or .git/info/exclude
-/build      # only matches <repo-root>/build, evaluated per-repo
-build/      # matches build/ at any depth (no leading slash = unanchored)
+# only matches <repo-root>/build, evaluated per-repo
+/build
+
+# matches build/ at any depth (no leading slash = unanchored)
+build/
 ```
 
 Since the global file applies to every repo, `/build` is re-anchored to whichever repo's root Git is currently evaluating — it doesn't refer to a fixed path on disk.
