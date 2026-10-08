@@ -2,6 +2,7 @@
 title: "Atuin"
 tags: [tools, cli, shell]
 created: 2026-10-08
+modified: 2026-10-08
 ---
 `atuin` replaces shell history with a SQLite database that records each command with its directory, exit code, duration, and session. Search is a fuzzy TUI bound to `Ctrl-R` (and optionally the up arrow), and the database can sync across machines.
 
@@ -53,6 +54,24 @@ bindkey -M emacs '^p' atuin-up-search
 ```
 
 There's no atuin widget for `Ctrl-N`, since there's nothing to go down to before the search opens.
+
+## Compact Up Arrow Search
+
+The full-screen UI hides the terminal, which is a problem when I run `<command> --help` and want to copy from the output before recalling the command. `inline_height` fixes that, but it applies to `Ctrl-R` too. To shrink only the up arrow, wrap `_atuin_up_search` in a widget that passes `--inline-height` and overrides the UI options through `ATUIN_*` environment variables:
+
+```zsh
+eval "$(atuin init zsh)"
+_atuin_up_search_inline() {
+  ATUIN_STYLE=compact ATUIN_SHOW_HELP=false ATUIN_SHOW_TABS=false ATUIN_SHOW_PREVIEW=false \
+    _atuin_up_search --inline-height 2
+}
+zle -N atuin-up-search-inline _atuin_up_search_inline
+bindkey -M emacs '^p' atuin-up-search-inline
+bindkey -M emacs '^[[A' atuin-up-search-inline
+bindkey -M emacs '^[OA' atuin-up-search-inline
+```
+
+`Ctrl-R` keeps the full UI. The `show_*` options drop the help row, the tabs row, and the preview row, which is what gets the strip down to two lines. If you only need the height, `inline_height_shell_up_key_binding = 2` in `config.toml` does it natively.
 
 ## Left Arrow in the Search UI
 
