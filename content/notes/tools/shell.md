@@ -2,6 +2,7 @@
 title: "Shell"
 tags: [tools, shell, cli]
 created: 2026-07-22
+modified: 2026-10-08
 ---
 A running collection of interactive shell tricks worth knowing.
 
@@ -44,3 +45,13 @@ timeout --signal=INT 10s cmd    # send a specific signal instead of the default 
 ```
 
 Exit code `124` means the command was killed by the timeout, not that it failed on its own.
+
+For a command you're not sure will terminate, `timeout` replaces the background-and-`kill` dance (`cmd & ...; kill %1`) — it cleans up after itself and the exit code tells you what happened:
+
+```bash
+timeout 30s python main.py; test $status -eq 124; and echo "timed out"   # fish
+timeout 30s python main.py; [ $? -eq 124 ] && echo "timed out"            # bash/zsh
+timeout --foreground 30s <command>   # needed when the command reads from the TTY interactively
+```
+
+macOS ships no `timeout`; install GNU coreutils (`brew install coreutils`), which provides `gtimeout`.
